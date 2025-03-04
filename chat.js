@@ -469,26 +469,28 @@ var stunServerList = [
     var sections = {
       "https://cdn.glitch.global/fa5e6d1e-8b42-4a21-81e8-03fd7cd6401a/costume1.svg?v=1725635781707":
         "Random Rants Emojis",
-      "icons/audio.svg": "Random Rants Icon Emojis",
-      "img/smw-bored.png": "Pixel Emojis",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/audio.svg":
+        "Random Rants Icon Emojis",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/smw-bored.png":
+        "Pixel Emojis",
     };
     sections[firstGCEmoji] = "Gvbvdxx Chat Emojis";
 
     var emojis = gcEmojisURL.concat([
       //Place urls in quotes, and make sure to add commas at the end of the quotes to prevent random errors from happening.
       "https://cdn.glitch.global/fa5e6d1e-8b42-4a21-81e8-03fd7cd6401a/costume1.svg?v=1725635781707",
-      "img/guy_pointing.svg",
-      "img/mrbeaast.svg",
-      "img/obama.svg",
-      "img/whatthe.jpg",
-      "img/anotherthing.svg",
-      "img/sad.svg",
-      "img/thing.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/guy_pointing.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/mrbeaast.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/obama.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/whatthe.jpg",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/anotherthing.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/sad.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/thing.svg",
       "https://cdn.glitch.global/fa5e6d1e-8b42-4a21-81e8-03fd7cd6401a/amogus.svg?v=1725635605024",
       "https://cdn.glitch.global/fa5e6d1e-8b42-4a21-81e8-03fd7cd6401a/_ROCK%20(1).svg?v=1725635989147",
-      "img/dance.gif",
-      "img/sonk.png",
-      "img/2.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/dance.gif",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/sonk.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/2.png",
       "https://cdn.glitch.global/fa5e6d1e-8b42-4a21-81e8-03fd7cd6401a/uVnwhMjZTg1uk3vsdiCc.jpeg?v=1724254756623",
       "https://cdn.glitch.global/fa5e6d1e-8b42-4a21-81e8-03fd7cd6401a/sonic-sonic-the-hedgehog.gif?v=1714953946021",
       "https://cdn.glitch.global/fa5e6d1e-8b42-4a21-81e8-03fd7cd6401a/ezgif-4-71ea9f9245.gif?v=1714954639819",
@@ -501,51 +503,51 @@ var stunServerList = [
       "https://cdn.glitch.global/7c96d5e9-c306-40b6-a0ef-5f5da70ecb6b/Sad2.png?v=1715340685313",
       "https://cdn.glitch.global/fa5e6d1e-8b42-4a21-81e8-03fd7cd6401a/sonic-shocked.gif?v=1714955288854",
       "https://cdn.glitch.global/7c96d5e9-c306-40b6-a0ef-5f5da70ecb6b/cat.png?v=1715342049891",
-      "icons/audio.svg",
-      "icons/clearchat.svg",
-      "icons/image.svg",
-      "icons/import.svg",
-      "icons/mail.svg",
-      "icons/mic-active.svg",
-      "icons/mic.svg",
-      "icons/nomail.svg",
-      "icons/screenshare.svg",
-      "icons/send.svg",
-      "icons/sendhidden.svg",
-      "icons/stopscreenshare.svg",
-      "icons/video.svg",
-      "icons/emoji.svg",
-      "icons/emoji-angry.svg",
-      "icons/emoji-crying.svg",
-      "icons/emoji-eyebrow.svg",
-      "icons/emoji-hmm.svg",
-      "icons/emoji-laughing.svg",
-      "icons/emoji-meh.svg",
-      "icons/emoji-oh.svg",
-      "icons/emoji-sad.svg",
-      "icons/emoji-sad2.svg",
-      "icons/emoji-slightcry.svg",
-      "icons/emoji-straightface.svg",
-      "icons/emoji-wink.svg",
-      "icons/emoji-nerd.svg",
-      "img/smw-bored.png",
-      "img/smw-grin.png",
-      "img/smw-laugh.gif",
-      "img/smw-smile.png",
-      "img/smw-straightface.png",
-      "img/smw-uhoh.png",
-      "img/smw-uhoh2.png",
-      "img/coin.gif",
-      "img/num0.png",
-      "img/num1.png",
-      "img/num2.png",
-      "img/num3.png",
-      "img/num4.png",
-      "img/num5.png",
-      "img/num6.png",
-      "img/num7.png",
-      "img/num8.png",
-      "img/num9.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/audio.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/clearchat.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/image.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/import.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/mail.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/mic-active.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/mic.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/nomail.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/screenshare.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/send.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/sendhidden.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/stopscreenshare.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/video.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-angry.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-crying.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-eyebrow.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-hmm.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-laughing.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-meh.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-oh.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-sad.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-sad2.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-slightcry.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-straightface.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-wink.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-nerd.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/smw-bored.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/smw-grin.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/smw-laugh.gif",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/smw-smile.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/smw-straightface.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/smw-uhoh.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/smw-uhoh2.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/coin.gif",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/num0.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/num1.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/num2.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/num3.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/num4.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/num5.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/num6.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/num7.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/num8.png",
+      "https://random-rants-chat.github.io/randomrants-emojis/img/num9.png",
     ]);
     var notifcationLogo = "favicon.png";
     function bin2String(array) {
@@ -1176,132 +1178,131 @@ var stunServerList = [
         name: "Clickity Clackity",
       },
       {
-        zipfile: "aughhhhh.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/aughhhhh.wav",
         name: "Aughhhhh",
       },
       {
-        zipfile: "bombastic-side-eye.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/bombastic-side-eye.wav",
         name: "Bombastic Side Eye",
       },
       {
-        zipfile: "bonk.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/bonk.wav",
         name: "Bonk",
       },
       {
-        zipfile: "bruh.mp3",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/bruh.mp3",
         name: "Bruh",
       },
       {
-        zipfile: "can-i-haz-chezburger-pls.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/can-i-haz-chezburger-pls.wav",
         name: "Can I haz chezburger pls",
       },
       {
-        zipfile: "clash-royale-hog-rider.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/clash-royale-hog-rider.wav",
         name: "HOG RIDER",
       },
       {
-        zipfile: "e_meme.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/e_meme.wav",
         name: "E",
       },
       {
-        zipfile: "emotional-damage-meme.mp3",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/emotional-damage-meme.mp3",
         name: "Emotional damage!",
       },
       {
-        zipfile: "fnaf.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/fnaf.wav",
         name: "Man singing FNAF",
       },
       {
-        zipfile: "fortnite-default-dance-bass-boosted.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/fortnite-default-dance-bass-boosted.wav",
         name: "Fortnite Default Dance",
       },
       {
-        zipfile: "goofy-ahh-car-horn-sound-effect.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/goofy-ahh-car-horn-sound-effect.wav",
         name: "Goofy car horn",
       },
       {
-        zipfile: "goofy-ahh-runnin.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/goofy-ahh-runnin.wav",
         name: "Goofy running sounds",
       },
       {
-        zipfile: "grubhub.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/grubhub.wav",
         name: "Grubhub",
       },
       {
-        zipfile: "gulp-gulp-gulp.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/gulp-gulp-gulp.wav",
         name: "Gulp gulp gulp",
       },
       {
-        zipfile: "he-he-he-ha.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/he-he-he-ha.wav",
         name: "He He He Ha!",
       },
       {
-        zipfile: "i-woke-up-in-a-new-bugatti.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/i-woke-up-in-a-new-bugatti.wav",
         name: "I woke up in a new bugatti",
       },
       {
-        zipfile: "im-lovin-it.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/im-lovin-it.wav",
         name: "Im lovin' it",
       },
       {
-        zipfile: "im-the-biggest-bird.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/im-the-biggest-bird.wav",
         name: "I'm the biggest bird",
       },
       {
-        zipfile: "indian-music-mp3cut.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/indian-music-mp3cut.wav",
         name: "Indian music",
       },
       {
-        zipfile:
-          "john-cena-are-you-sure-about-that-greenscreen-improved-version.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/john-cena-are-you-sure-about-that-greenscreen-improved-version.wav",
         name: "Are you sure about that?",
       },
       {
-        zipfile: "mine-diamonds.mp3",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/mine-diamonds.mp3",
         name: "Mine diamonds",
       },
       {
-        zipfile: "nooo.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/nooo.wav",
         name: "Nooooo!",
       },
       {
-        zipfile: "rehehehe.mp3",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/rehehehe.mp3",
         name: "Rehehehe",
       },
       {
-        zipfile: "sad-violin.mp3",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/sad-violin.mp3",
         name: "Sad violin",
       },
       {
-        zipfile: "samsung-notifcation.mp3",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/samsung-notifcation.mp3",
         name: "Samsung Notifcation",
       },
       {
-        zipfile: "shimmy-shimmy.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/shimmy-shimmy.wav",
         name: "Shimmy Shimmy Ay",
       },
       {
-        zipfile: "siuuuuu.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/siuuuuu.wav",
         name: "Siuuuuu",
       },
       {
-        zipfile: "tacobell.mp3",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/tacobell.mp3",
         name: "Taco Bell",
       },
       {
-        zipfile: "wanna-break-from-the-ads.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/wanna-break-from-the-ads.wav",
         name: "Wanna break from the ads?",
       },
       {
-        zipfile: "what-the-dog-doin.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/what-the-dog-doin.wav",
         name: "What the dog doin",
       },
       {
-        zipfile: "windows-error.mp3",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/windows-error.mp3",
         name: "Windows error",
       },
       {
-        zipfile: "yeet-sound-effect.wav",
+        url: "https://random-rants-chat.github.io/randomrants-soundboard/yeet-sound-effect.wav",
         name: "YEET!",
       },
     ];
@@ -1784,7 +1785,7 @@ var stunServerList = [
             i += 1;
           }
         };
-        
+
         rrLoadingStatus.textContent = "Loading emojis...";
 
         window.loadEmojis();
@@ -4648,7 +4649,8 @@ var stunServerList = [
           }
         };
         ///////////////
-        rrLoadingStatus.textContent = "Waiting for user content storage service...";
+        rrLoadingStatus.textContent =
+          "Waiting for user content storage service...";
         document.getElementById("screenCaptureDiv").hidden = true;
 
         if (preloader.groupSettings.serverCheck == "on") {
@@ -5108,7 +5110,7 @@ var stunServerList = [
         rrLoadingStatus.textContent = "Loading navigation sounds...";
         var errorSound = await window.loadSoundURL(
           await preloader.getURL(
-            "uisound/error-warning-login-denied-132113.mp3",
+            "https://random-rants-chat.github.io/randomrants-resources/error-warning-login-denied-132113.mp3",
             "sounds"
           )
         );
@@ -5119,19 +5121,19 @@ var stunServerList = [
         window.notify = new window.AudioApiReplacement(
           await window.loadSoundURL(
             await preloader.getURL(
-              "uisound/infographic-pop-8-197875.mp3",
+              "https://random-rants-chat.github.io/randomrants-resources/infographic-pop-8-197875.mp3",
               "sounds"
             )
           )
         );
         window.click = new window.AudioApiReplacement(
           await window.loadSoundURL(
-            await preloader.getURL("uisound/select-sound-121244.mp3", "sounds")
+            await preloader.getURL("https://random-rants-chat.github.io/randomrants-resources/select-sound-121244.mp3", "sounds")
           )
         );
         window.typeLoadedData = await window.loadSoundURL(
           await preloader.getURL(
-            "uisound/spacebar-click-keyboard-199448.mp3",
+            "https://random-rants-chat.github.io/randomrants-resources/spacebar-click-keyboard-199448.mp3",
             "sounds"
           )
         );
@@ -5245,35 +5247,38 @@ var stunServerList = [
           var sbZip = await window.JSZip.loadAsync(sbArrayBuffer);
           sbZips.push(sbZip);
         }
+        var loaded = 0;
+        var neededToLoad = soundboardSounds.length;
         for (var sound of soundboardSounds) {
           if (!sound.isCustom) {
-            (async function (sound) {
-              if (typeof sound.zipfile == "string") {
-                try {
-                  var file = null;
-                  for (var sbZip of sbZips) {
-                    if (sbZip.files[sound.zipfile]) {
-                      file = sbZip.files[sound.zipfile];
-                    }
+            if (typeof sound.zipfile == "string") {
+              try {
+                var file = null;
+                for (var sbZip of sbZips) {
+                  if (sbZip.files[sound.zipfile]) {
+                    file = sbZip.files[sound.zipfile];
                   }
-                  if (!file) {
-                    dialog.alert(
-                      `${sound.zipfile} does not exist in a soundboard zip file`
-                    );
-                    return;
-                  }
-                  var arrayBuffer = await file.async("arrayBuffer");
-                  sound.data = await window.decodeAsync(arrayBuffer);
-                  //window.alert(sound.data);
-                } catch (e) {
-                  dialog.alert(e);
                 }
-              } else {
-                sound.data = await window.loadSoundURL(sound.url);
+                if (!file) {
+                  dialog.alert(
+                    `${sound.zipfile} does not exist in a soundboard zip file`
+                  );
+                  return;
+                }
+                var arrayBuffer = await file.async("arrayBuffer");
+                sound.data = await window.decodeAsync(arrayBuffer);
+                //window.alert(sound.data);
+              } catch (e) {
+                dialog.alert(e);
               }
-            })(sound);
+            } else {
+              sound.data = await window.loadSoundURL(sound.url);
+            }
           }
           i += 1;
+          loaded += 1;
+          var percent = Math.round((loaded/neededToLoad)*100);
+          rrLoadingStatus.textContent = "Loading shared soundboard sounds... ("+percent+"%)";
         }
         loadSoundboardButtons();
         var selectedCustomSoundURL = "";
@@ -5399,15 +5404,17 @@ var stunServerList = [
         document.getElementById("loadingCircle2").style.display = "none";
         document.getElementById("appMain").hidden = false;
         setTitle("");
-        
+
         //Welcome screen stuff.
         var rrWelcomeScreen = document.getElementById("rrWelcomeScreen");
-        var rrWelcomeScreenCloseButton = document.getElementById("rrWelcomeScreenCloseButton");
-        
+        var rrWelcomeScreenCloseButton = document.getElementById(
+          "rrWelcomeScreenCloseButton"
+        );
+
         if (!localStorage.getItem("welcomeDisplayed")) {
           rrWelcomeScreen.hidden = false;
           rrWelcomeScreenCloseButton.onclick = function () {
-            localStorage.setItem("welcomeDisplayed","true");
+            localStorage.setItem("welcomeDisplayed", "true");
             rrWelcomeScreen.hidden = true;
           };
         }
