@@ -1,0 +1,1 @@
+if (!(window.errors)) {window.errors={};}

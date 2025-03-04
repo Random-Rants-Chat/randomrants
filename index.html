@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html style="">
+  <head>
+    <title>Random Rants</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Pixelify+Sans:wght@400..700&family=Tektur:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jacquard+12+Charted&family=Jersey+15&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Jacquard+12+Charted&family=Jersey+15&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body style="">
+    <style>
+      :root {
+        --bg-color: #b8b8b8;
+        --header-color: #b8b8b8;
+
+        --main-font: arial;
+
+        --main-text-color: black;
+
+        --input-bg-color: #363636;
+        --input-text-color: #c9c9c9;
+        --input-border-color: #1f1f1f;
+        --input-border-width: 3px;
+
+        --messages-bg-color: #919191;
+        --messages-text-color: #fcfcfc;
+
+        --profile-background: #969696;
+        --profile-border-color: #7d7d7d;
+
+        --separator-color: #696969;
+
+        --textbox-bg-color: #e0e0e0;
+        --textbox-border-color: #696969;
+
+        --button-bg-color: #e0e0e0;
+        --button-text-color: #696969;
+        --button-hover-bg-color: #f2f2f2;
+        --button-disabled-color: #5e5e5e;
+
+        --loading-spinner-color: #878787;
+
+        --border-radius: 3px;
+        --profile-border-radius: 64px;
+
+        --spinner-rotation-seconds: 1.34s;
+
+        --popup-box-bg-color: white;
+        --popup-box-text-color: black;
+
+        --link-text-color: #4287f5;
+
+        --main-font-size: 15px;
+
+        --selected-emoji-popup-dialog-bg-color: #15e64d;
+        --selected-emoji-popup-dialog-border-color: #23a646;
+        --selected-emoji-popup-dialog-border-width: 2px;
+        --selected-emoji-popup-dialog-text-color: #e6ffec;
+
+        --server-notifcation-color: #ffd000;
+
+        --default-font-weight: 0px;
+
+        --connection-status-normal-color: #000000;
+        --connection-status-connected-color: #039e00;
+        --connection-status-error-color: #9e0000;
+
+        --color-select-bg-color: #9e9e9e;
+        --color-select-border-color: #858585;
+
+        --color-select-highlight-color: #FFFFFFF;
+
+        --storage-group-background-color: #dedede;
+        --storage-group-border-color: #bdbdbd;
+        --storage-group-text-color: #4a4a4a;
+
+        --soundboard-button-bgcolor: #a1a1a1;
+        --soundboard-button-hover-bgcolor: #bfbfbf;
+
+        --usercolors-1: #ff0000;
+        --usercolors-2: #ff6f00;
+        --usercolors-3: #ffd500;
+        --usercolors-4: #b7ff00;
+        --usercolors-5: #48ff00;
+        --usercolors-6: #00ff2a;
+        --usercolors-7: #00ffa2;
+        --usercolors-8: #00fff2;
+        --usercolors-9: #00ccff;
+        --usercolors-10: #0073ff;
+        --usercolors-11: #001aff;
+        --usercolors-12: #5900ff;
+        --usercolors-13: #b700ff;
+        --usercolors-14: #ff00e6;
+        --usercolors-15: #ff00a6;
+        --usercolors-16: #dbdbdb;
+        --usercolors-17: #adadad;
+        --usercolors-18: #808080;
+        --usercolors-19: #636363;
+        --usercolors-20: #404040;
+        --usercolors-21: #2e2e2e;
+        --usercolors-22: #000000;
+
+        /*windowDialogContainer*/
+        --popup-dialog-font: "arial";
+        /*windowDialogBox*/
+        --popup-dialog-background: #fff;
+        --popup-dialog-border-radius: 10px;
+        --popup-dialog-text-color: #000;
+        /*windowDialogButton*/
+        --popup-dialog-button-background: #5985ff;
+        --popup-dialog-button-hover-background: #4275ff;
+        --popup-dialog-button-text-color: #fff;
+        --popup-dialog-button-radius: 5px;
+        /*windowDialogInput*/
+        --popup-dialog-input-background: #fff;
+        --popup-dialog-input-border-width: 1.5px;
+        --popup-dialog-input-border-color: #bababa;
+        --popup-dialog-input-text-color: #000;
+        /*windowDialogHeader*/
+        --popup-dialog-message-size: 16px;
+      }
+
+      ::-webkit-scrollbar {
+        width: 15px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--bg-color);
+        border-radius: var(--border-radius);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--button-bg-color);
+        border-radius: var(--border-radius);
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--button-hover-bg-color);
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--main-text-color);
+        font-family: var(--main-font);
+        cursor: default;
+        font-size: var(--main-font-size);
+        font-weight: var(--default-font-weight);
+      }
+      .textBoxColors {
+        background-color: var(--textbox-bg-color);
+        color: var(--textbox-border-color);
+        font-family: var(--main-font);
+      }
+      @font-face {
+        font-family: pixel;
+        src: url("pixel.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: comicsansms;
+        src: url("COMIC.TTF") format("truetype");
+      }
+      .inputText1 {
+        resize: none;
+        font-size: 20px;
+        width: 30%;
+        height: 5%;
+        border: none;
+        background-color: var(--input-bg-color);
+        color: var(--input-text-color);
+        border-style: solid;
+        border-width: var(--input-border-width);
+        border-color: var(--input-border-color);
+        outline: none;
+        font-family: var(--main-font);
+      }
+      .sep1 {
+        border-top: 3px dashed var(--separator-color);
+        height: 20px;
+        margin-top: 20px;
+        outline: none;
+      }
+      .roundborder {
+        border-radius: var(--border-radius);
+        outline: none;
+      }
+      .profile {
+        outline: none;
+        border-radius: var(--profile-border-radius);
+        border-style: solid;
+        border-width: 1.7px;
+        border-color: var(--profile-border-color);
+        background: var(--profile-background);
+        position: relative;
+        image-rendering: pixelated;
+        top: 0px;
+      }
+      #screenCaptureDiv {
+        position: fixed;
+        top: 0;
+        right: 0;
+        image-rendering: pixelated;
+        background: var(--bg-color);
+      }
+      .fullscreenView {
+        outline: none;
+        width: 100%;
+        height: 100%;
+      }
+      .defaultView {
+        outline: none;
+        width: 400px;
+        height: 290px;
+      }
+      .colorPallete {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        max-width: calc(100% - 200px);
+        width: fit-content;
+        min-width: 100px;
+        height: 32px;
+        background-color: var(--color-select-bg-color);
+        border-style: solid;
+        border-width: 2px;
+        border-color: var(--color-select-border-color);
+      }
+      .colorPaleteSelectButton {
+        width: 32px;
+        height: 32px;
+        float: left;
+      }
+      .colorPaleteSelectButton:not([selected]):hover {
+        cursor: pointer;
+      }
+      .colorPaleteSelectButton[selected] {
+        border-style: solid;
+        border-color: var(--color-select-highlight-color);
+        border-width: 2px;
+        width: 28px;
+        height: 28px;
+      }
+
+      .storageSettingOption {
+        width: calc(100% - 4px);
+        height: fit-content;
+        min-height: 80px;
+        background: var(--storage-group-background-color);
+        border-width: 2px;
+        border-color: var(--storage-group-border-color);
+        border-style: solid;
+        margin: flex;
+        text-align: left;
+        color: var(--storage-group-text-color);
+        position: relative;
+      }
+      .storageSettingOption span[cssheader] {
+        font-size: 25px;
+      }
+      .storageSettingOption span[cssdiscription] {
+        font-size: 14px;
+      }
+      .storageSettingOption div[selectcontainer] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        max-width: 500px;
+        min-width: 70px;
+        width: calc(100% - 320px);
+        font-size: 20px;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .storageSettingOption select {
+        width: 100%;
+        height: 30px;
+      }
+
+      .centerHorizontal {
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+      }
+      [hidden] {
+        /*Elements using the hidden tag would still be read by screen readers, this is a slight fix by using display:none; on hidden elements.*/
+        display: none;
+      }
+      /*.roomAddButton {
+            text-align: center;
+            line-height: 80px;
+            font-size: 50px;
+          }
+          .roomTextButton {
+            text-align: center;
+            line-height: 80px;
+            font-size: 30px;
+          }*/
+    </style>
+    <style>
+      /*For the dialog.js script*/
+      .windowDialogContainer {
+        font-family: var(--popup-dialog-font);
+      }
+      .windowDialogBackground {
+        background: black;
+      }
+      .windowDialogBox {
+        background: var(--popup-dialog-background);
+        border-radius: var(--popup-dialog-border-radius);
+        color: var(--popup-dialog-text-color);
+      }
+      .windowDialogButton {
+        background: var(--popup-dialog-button-background);
+        color: var(--popup-dialog-button-text-color);
+        border-radius: var(--popup-dialog-button-radius);
+      }
+      .windowDialogButton:hover {
+        background: var(--popup-dialog-button-hover-background);
+      }
+      .windowDialogInput {
+        background: var(--popup-dialog-input-background);
+        border-style: solid;
+        border-width: var(--popup-dialog-input-border-width);
+        border-color: var(--popup-dialog-input-border-color);
+        color: var(--popup-dialog-input-text-color);
+        outline: none;
+      }
+      .windowDialogHeader {
+        font-weight: bold;
+        font-size: var(--popup-dialog-message-size);
+      }
+    </style>
+    <div hidden id="appMain" class="centerHorizontal">
+      <div
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background: var(--header-color);
+          height: 40px;
+          display: flex;
+        "
+      >
+        <div style="position: relative; left: 5px; display: flex">
+          <img src="page-logo.svg" height="32" />
+          <span style="margin-left: 10px; line-height: 40px">
+            Random Rants
+          </span>
+        </div>
+      </div>
+      <div style="width: 100%; height: 40px"></div>
+      <div id="usernameSetup">
+        <span id="connectingState" class="connectingText"></span>
+        <div class="sep1"></div>
+        <label>Username:</label>
+        <input
+          type="text"
+          id="username"
+          oninput="typeSound();"
+          class="roundborder inputText1"
+          value=""
+        /><br />
+        <b style="color: red" id="errorMessageUsername"></b>
+        <label>Profile Picture:</label>
+        <button id="resetPFP" class="roundborder">Reset</button>
+        <button
+          id="loadPFP"
+          class="roundborder"
+          onclick="document.getElementById('pfpSelect').click();"
+        >
+          Load Profile Picture
+        </button>
+        <input
+          type="file"
+          id="pfpSelect"
+          onclick="clickSound();"
+          accept="image/*"
+          onchange="setPFP(this);"
+          hidden
+        />
+        <img
+          class="profile"
+          id="profilePreview"
+          src="favicon.png"
+          width="32"
+          height="32"
+        />
+        <br />
+        <button id="fromColorButton">Custom color</button>
+        <button id="fromColorPalleteButton">From pallete</button>
+
+        <div id="fromColor">
+          <span id="profilecolorexample">Color:</span>
+          <input
+            type="color"
+            id="profilecolor"
+            oninput="document.getElementById('profilecolorexample').style.color = this.value;"
+          />
+        </div>
+        <div id="fromColorPallete" hidden>
+          <div
+            id="colorPalletes"
+            class="colorPallete"
+            style="margin: 0 auto"
+          ></div>
+        </div>
+        <div class="sep1"></div>
+        <span>Customize your Random Rants theme! </span>
+        <button id="customizeChat" class="roundborder">
+          Open Customization Settings
+        </button>
+        <div class="sep1"></div>
+        <span
+          >Random Rants loading slow? <br />
+          Random Rants taking too much resources? <br />
+          Try changing the loading settings!
+        </span>
+        <button onclick="openFileLoadingSettings();" class="roundborder">
+          Open Loading Settings
+        </button>
+        <div id="activationDiv">
+          <div class="sep1"></div>
+          <b>Activate VIP/Admin:</b>
+          <br />
+          <span>More features are added within VIP/Admin mode.</span>
+          <br />
+          <label>Password:</label>
+          <input
+            type="password"
+            id="activateCommandsPassword"
+            class="roundborder inputText1"
+            placeholder="To activate VIP/Admin mode, use the password here!"
+          />
+          <button id="activateCommandPassword" class="roundborder">
+            Activate!
+          </button>
+        </div>
+        <div class="sep1"></div>
+        <label>Room:</label>
+        <select
+          type="text"
+          class="roundborder inputText1"
+          id="Server"
+          style="width: fit-content"
+          oninput="window.server = this.value;typeSound();"
+        >
+          <option selected value="main" title="Main Room">Main Room</option>
+          <option value="serva" title="Room A">Room A</option>
+          <option value="servb" title="Room B">Room B</option>
+          <option value="servc" title="Room C">Room C</option>
+          <option value="servd" title="Room D">Room D</option>
+          <option value="serve" title="Room E">Room E</option>
+          <option value="servf" title="Room F">Room F</option>
+          <option value="servg" title="Room G">Room G</option>
+          <option value="servh" title="Room H">Room H</option>
+          <option value="servi" title="Room I">Room I</option>
+          <option value="servj" title="Room J">Room J</option>
+          <option value="servk" title="Room K">Room K</option>
+          <option value="servl" title="Room L">Room L</option>
+          <option value="servm" title="Room M">Room M</option>
+          <option value="servn" title="Room N">Room N</option>
+          <option value="servo" title="Room O">Room O</option>
+          <option value="servp" title="Room P">Room P</option>
+          <option value="servq" title="Room Q">Room Q</option>
+          <option value="servr" title="Room R">Room R</option>
+          <option value="servs" title="Room S">Room S</option>
+          <option value="servt" title="Room T">Room T</option>
+          <option value="servu" title="Room U">Room U</option>
+          <option value="servv" title="Room V">Room V</option>
+          <option value="servw" title="Room W">Room W</option>
+          <option value="servx" title="Room X">Room X</option>
+          <option value="servy" title="Room Y">Room Y</option>
+          <option value="servz" title="Room Z">Room Z</option>
+          <option value="serv1" title="Room 1">Room 1</option>
+          <option value="serv2" title="Room 2">Room 2</option>
+          <option value="serv3" title="Room 3">Room 3</option>
+          <option value="serv4" title="Room 4">Room 4</option>
+          <option value="serv5" title="Room 5">Room 5</option>
+          <option value="serv6" title="Room 6">Room 6</option>
+          <option value="serv7" title="Room 7">Room 7</option>
+          <option value="serv8" title="Room 8">Room 8</option>
+          <option value="serv9" title="Room 9">Room 9</option>
+          <option value="serv10" title="Room 10">Room 10</option>
+          <option value="betatesting" title="Beta Testing Room">
+            Beta Testing Room
+          </option>
+        </select>
+        <div id="noPeopleOnlineMessage" hidden>
+          Nobody is online, join a room so people can join you!
+        </div>
+        <div class="sep1"></div>
+        <div style="margin: 0 auto">
+          <button id="installApp" class="roundborder">Install the Random Rants icon!</button>
+          <div id="installAppPrompt" hidden>
+            <div
+              style="
+                display: flex;
+                text-align: center;
+                width: 100%;
+                line-height: 239px;
+              "
+            >
+              <span style="">Click the "Install" button to finish:</span><br />
+              <img src="installapp.png" height="239" />
+            </div>
+          </div>
+        </div>
+        <button id="join" class="roundborder">Join!</button>
+      </div>
+
+      <div id="chat" hidden>
+        <button
+          onclick="window.location.reload();"
+          class="roundborder"
+          style="position: fixed; top: 0; right: 0; height: 40px"
+        >
+          Home
+        </button>
+        <b id="usersTyping" style="position: fixed; bottom: 40px; left: 0"></b>
+        <div
+          id="messages"
+          class="roundborder"
+          style="
+            resize: none;
+            font-size: 20px;
+            width: 100%;
+            height: calc(100vh - 220px);
+            border: none;
+            background-color: var(--messages-bg-color);
+            color: var(--messages-text-color);
+            overflow: auto;
+            min-height: 150px;
+            min-width: 200px;
+          "
+          disabled
+        >
+          <span
+            id="messagesP"
+            style="float: left; text-align: left; width: 100%; height: 100%"
+          ></span>
+        </div>
+        <input
+          type="text"
+          placeholder="Type your message here..."
+          oninput="typeSound();"
+          id="typedMessage"
+          class="roundborder textBoxColors"
+          style="
+            resize: none;
+            font-size: 20px;
+            width: calc(100vw - 300px);
+            min-width: 100px;
+            height: 25px;
+            border: none;
+          "
+        />
+        <button id="Send" class="roundborder" title="Send message">
+          <img src="icons/send.svg" height="25" />
+        </button>
+        <button id="SendHidden" class="roundborder" title="Send hidden message">
+          <img src="icons/sendhidden.svg" height="25" />
+        </button>
+        <button
+          id="Clear"
+          onclick="messages.children[0].innerHTML = '';clickSound();"
+          class="roundborder"
+          title="Clear chat"
+        >
+          <img src="icons/clearchat.svg" height="25" />
+        </button>
+        <br />
+        <br />
+        <div id="interactiveButtons">
+          File:
+          <button
+            id="uploadImage"
+            class="roundborder"
+            onclick="
+					document.getElementById('imgUploader').click();
+					clickSound();
+				"
+            title="Send image file"
+          >
+            Image
+          </button>
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onchange="uploadeIMGFile(this);"
+            hidden
+            id="imgUploader"
+          />
+          <button
+            id="uploadAudio"
+            class="roundborder"
+            onclick="
+					document.getElementById('uploadAudioFile').click();
+					clickSound();
+				"
+            title="Send audio file"
+          >
+            Audio
+          </button>
+          <input
+            type="file"
+            accept="audio/*"
+            onchange="uploadeAudioFile(this);"
+            multiple
+            hidden
+            id="uploadAudioFile"
+          />
+          <button
+            id="uploadVideo"
+            class="roundborder"
+            onclick="
+					document.getElementById('uploadVideoFile').click();
+					clickSound();
+				"
+            title="Send video file"
+          >
+            Video
+          </button>
+          <input
+            type="file"
+            accept="video/*"
+            onchange="uploadeVideoFile(this);"
+            multiple
+            hidden
+            id="uploadVideoFile"
+          />
+          <button
+            id="DUFile"
+            class="roundborder"
+            onclick="
+					document.getElementById('DUFileUpload').click();
+					clickSound();
+				"
+            title="Send any other file"
+          >
+            Other
+          </button>
+          <button
+            id="URLFile"
+            class="roundborder"
+            title="Create a URL to download file from. Used for commands."
+          >
+            Insert URL
+          </button>
+          <br />
+          <span>Realtime video and audio:</span>
+          <button
+            class="roundborder"
+            id="shareScreen"
+            hidden
+            onclick=""
+            title="Toggle share screen"
+          >
+            Screen Share
+          </button>
+          <button
+            class="roundborder"
+            id="shareScreenButton"
+            onclick=""
+            title="Toggle share screen"
+          >
+            Screen Share
+          </button>
+          <button
+            class="roundborder"
+            id="enableCam"
+            onclick=""
+            title="Toggle share screen"
+          ></button>
+          <button
+            class="roundborder"
+            id="shareCameraButton"
+            onclick=""
+            hidden
+            title="Toggle share screen"
+          >
+            Camera Share
+          </button>
+          <button
+            id="enableMic"
+            class="roundborder"
+            title="Toggle microphone"
+          ></button>
+          <button
+            class="roundborder"
+            id="showSoundboardButton"
+            title="Show a soundboard that everyone can hear!"
+          >
+            Soundboard
+          </button>
+          <br />
+          <span>Other:</span>
+          <input
+            type="file"
+            onchange="DUFileUpload(this);"
+            multiple
+            hidden
+            id="DUFileUpload"
+          />
+          <button
+            id="Emojis"
+            class="roundborder"
+            onclick="
+					document.getElementById('emojiSelect').style.display = 'block';
+					document.getElementById('chat').style.display = 'none';
+					clickSound();
+				"
+            title="Custom emojis"
+          >
+            Emojis
+          </button>
+          <button
+            class="roundborder"
+            onclick="
+				if (window.notifyEnabled == true) {
+					window.notifyEnabled = false;
+          this.textContent = 'Notify Me';
+          this.title = 'Turn on notifcations';
+				} else {
+					window.notifyEnabled = true;
+          this.textContent = 'Stop Notifying Me';
+          this.title = 'Turn off notifcations';
+				}"
+            title="Turn on notifcations"
+          >
+            Notify Me
+          </button>
+          <button
+            class="roundborder"
+            id="shareCamera"
+            onclick="startCapCam();"
+            hidden
+          ></button>
+          <button
+            onclick="window.customizeChatOpen();"
+            class="roundborder"
+            title="Customize random rants"
+          >
+            Customize
+          </button>
+          <button
+            onclick="openFileLoadingSettings();"
+            class="roundborder"
+            title="Change randdom rants settings"
+          >
+            Loading Settings
+          </button>
+          <button
+            onclick="openInsertBracketCode();"
+            class="roundborder"
+            title="Insert special bracket code for more things like blurred text, colored text, and more!"
+          >
+            Insert Bracket Code
+          </button>
+          <button
+            id="TogglePollingButton"
+            class="roundborder"
+            title="Toggle your polling"
+          ></button>
+        </div>
+      </div>
+
+      <div id="screenCaptureDiv" style="width: 400px; height: 250px" hidden>
+        <button
+          style="height: 20px"
+          onclick="
+			if (document.getElementById('screenCaptureDiv').getAttribute('style') == 'width:100%;height:100%;') {
+				document.getElementById('screenCaptureDiv').setAttribute('style','width:400px;height:290px;');
+			} else {
+				document.getElementById('screenCaptureDiv').setAttribute('style','width:100%;height:100%;');
+			}
+			
+			"
+          class="roundborder"
+        >
+          View/Exit Fullscreen</button
+        ><button
+          style="height: 20px"
+          class="roundborder"
+          id="scAudioToggle"
+        ></button>
+        <br />
+        <b id="screenCaptureUsername"></b>
+        <canvas
+          id="videoRecord"
+          hidden
+          style="object-fit: contain; width: 100%; height: calc(100% - 30px)"
+        ></canvas>
+        <video
+          id="videoRecordReal"
+          style="width: 100%; height: calc(100% - 30px)"
+        ></video>
+      </div>
+
+      <style>
+        /* Styling for individual video elements */
+        .cameraVideo {
+          width: 100px;
+          height: 100px; /* Matches container height */
+          background: black;
+          border: 2px solid #333; /* Subtle border for separation */
+          border-radius: 8px; /* Rounded corners for better aesthetics */
+          margin: 0 4px; /* Adds spacing between video elements */
+          overflow: hidden; /* Ensures video content stays inside rounded corners */
+          transition: transform 0.2s, box-shadow 0.2s; /* Smooth interaction effects */
+          position: relative;
+          top: 0;
+          left: 0;
+        }
+        
+        .cameraVideoElement {
+          width: 100%;
+          height: 100%;
+        }
+
+        /* Styling for the container */
+        #cameraVideos {
+          position: fixed;
+          top: 10px;
+          right: 100px;
+          width: 200px;
+          height: calc(100vh - 10px);
+          overflow-x: auto;
+          overflow-y: auto;
+          pointer-events: none;
+        }
+        #cameraVideos:hover {
+          opacity: 0.5;
+        }
+
+        /* Custom scrollbar for WebKit browsers */
+        #cameraVideos::-webkit-scrollbar {
+          height: 6px; /* Adjust scrollbar thickness */
+        }
+
+        #cameraVideos::-webkit-scrollbar-thumb {
+          background: #666; /* Scrollbar color */
+          border-radius: 3px; /* Rounded scrollbar */
+        }
+
+        #cameraVideos::-webkit-scrollbar-track {
+          background: transparent; /* Transparent track */
+        }
+        
+        .cameraVideoUsername {
+          position:absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, 0);
+          color: white;
+          font-weight: bold;
+          font-size: 13px;
+          opacity: 0.5;
+          max-width: 100px;
+          line-warp: balance;
+        }
+      </style>
+
+      <div id="cameraVideos"></div>
+
+      <div
+        id="screenShareNewDiv"
+        style="
+          width: 400px;
+          height: 250px;
+          position: fixed;
+          top: 0;
+          right: 0;
+          background: var(--bg-color);
+          image-rendering: pixelated;
+        "
+        hidden
+      >
+        <span id="ssInfoSpan"></span>
+        <br />
+        <div
+          id="ssVideoContainer"
+          style="background: black; width: 400px; height: 200px"
+        >
+          <video id="ssVideo" style="width: 100%; height: 100%"></video>
+        </div>
+        <button id="ssMute"></button>
+        <button id="ssFullScreen">Full Screen</button>
+      </div>
+
+      <div id="emojiSelect" style="display: none">
+        <button
+          onclick="
+				document.getElementById('emojiSelect').style.display = 'none';
+				document.getElementById('chat').style.display = 'block';
+				clickSound();
+				"
+          class="roundborder"
+        >
+          Back
+        </button>
+        <hr />
+        <div
+          style="width: 100%; height: calc(100vh - 120px); overflow: auto"
+          id="emojiContainer"
+        ></div>
+        <div
+          hidden
+          style="
+            background-color: var(--selected-emoji-popup-dialog-bg-color);
+            border-color: var(--selected-emoji-popup-dialog-border-color);
+            border-style: solid;
+            border-width: var(--selected-emoji-popup-dialog-border-width);
+            color: var(--selected-emoji-popup-dialog-text-color);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: calc(-400px / 2);
+            margin-top: -100px;
+            width: 400px;
+            height: 200px;
+          "
+          id="EmojiAddNotice"
+        >
+          <h1>Emoji Added!</h1>
+          <p>
+            The emoji code is put at the end of you're chat message.<br />
+            Click "back" to go back to the chat.
+          </p>
+          <br />
+          <button
+            onclick="document.getElementById('EmojiAddNotice').hidden = true;clickSound();"
+            class="roundborder"
+          >
+            Ok
+          </button>
+        </div>
+      </div>
+    </div>
+    <style>
+      .loader {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        border-style: solid;
+        border-width: 10px;
+        border-color: var(--loading-spinner-color);
+        animation: prixClipFix var(--spinner-rotation-seconds) steps(60)
+          infinite;
+      }
+
+      @keyframes prixClipFix {
+        0% {
+          clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+          transform: rotate(0deg);
+        }
+        50% {
+          clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+          transform: rotate(180deg);
+        }
+        100% {
+          clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <div
+      id="loadingCircle2"
+      style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 300px;
+      "
+    >
+      <div class="loader"></div>
+      <br />
+      <span
+        id="rrLoadingStatusSpan"
+        style="text-align: center; font-weight: bold"
+        >Loading JavaScript content...</span
+      >
+      <br />
+      <span style="text-align: center" id="randomfacttext">Please wait...</span>
+      <span style="text-align: center; font-weight: bold"
+        >Long loading times are normal if the Random Rants Servers has been
+        inactive.</span
+      >
+    </div>
+    <div id="customizeStuffTab" hidden>
+      <div
+        style="
+          opacity: 0.5;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+        "
+      ></div>
+      <div
+        style="
+          border-radius: var(--border-radius);
+          width: calc(100vw - 200px);
+          height: calc(100vh - 200px);
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          color: var(--popup-box-text-color);
+          margin-left: calc(calc(100vw - 200px) / -2);
+          margin-top: calc(calc(100vh - 200px) / -2);
+          text-align: center;
+          background: var(--popup-box-bg-color);
+          overflow-y: auto;
+          overflow-x: hidden;
+        "
+      >
+        <br />
+        <b style="font-size: 30px">Customization</b>
+        <br />
+        <span
+          >Note that your theme is saved on your browser, but not saved on our
+          servers unless you upload it there, your theme gets automatically
+          saved when you make changes to it.</span
+        >
+        <button
+          class="roundborder"
+          id="customizeChatExit"
+          style="
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 40px;
+            width: 40px;
+          "
+        >
+          X
+        </button>
+        <div class="sep1"></div>
+        <button class="roundborder" id="customizeChatReset">Reset theme</button>
+        <button class="roundborder" id="customizeChatSave">
+          Save theme file
+        </button>
+        <button class="roundborder" id="customizeChatLoad">
+          Load theme file
+        </button>
+        <div class="sep1"></div>
+        <button class="roundborder" id="customizeChatSaveINI">
+          Save theme INI
+        </button>
+        <button class="roundborder" id="customizeChatLoadINI">
+          Load theme INI
+        </button>
+        <div class="sep1"></div>
+        <span>Search:</span>
+        <input
+          type="text"
+          id="searchCustomization"
+          class="roundborder inputText1"
+        />
+        <div class="sep1"></div>
+        <button id="randomizeTheme" hidden>Randomize Theme</button>
+        <div class="sep1" hidden></div>
+        <div id="customizeStuff"></div>
+      </div>
+    </div>
+
+    <div id="fileLoadingSettings" hidden>
+      <div
+        style="
+          opacity: 0.5;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+        "
+      ></div>
+      <div
+        style="
+          border-radius: var(--border-radius);
+          width: calc(100vw - 100px);
+          height: calc(100vh - 100px);
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          color: var(--popup-box-text-color);
+          margin-left: calc(calc(100vw - 100px) / -2);
+          margin-top: calc(calc(100vh - 100px) / -2);
+          text-align: center;
+          background: var(--popup-box-bg-color);
+          overflow-y: auto;
+          overflow-x: hidden;
+        "
+      >
+        <br />
+        <b style="font-size: 30px">Resource loading settings</b>
+        <br />
+        <span>Change the way Random Rants makes resources load faster.</span>
+        <button
+          class="roundborder"
+          id="fileLoadingSettingsExit"
+          style="
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 40px;
+            width: 40px;
+          "
+        >
+          X
+        </button>
+        <div class="sep1"></div>
+        <div id="loadingSettingsProperties"></div>
+        <div class="sep1"></div>
+        <button id="clearLoadingStorage">Clear cache storage</button><br />
+        <span>Current Random Rants load size: </span
+        ><span id="loadingSettingsSize"></span>
+      </div>
+    </div>
+
+    <div id="customRoomSettings" hidden>
+      <div
+        style="
+          opacity: 0.5;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+        "
+      ></div>
+      <div
+        style="
+          border-radius: var(--border-radius);
+          width: calc(100vw - 100px);
+          height: calc(100vh - 100px);
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          color: var(--popup-box-text-color);
+          margin-left: calc(calc(100vw - 100px) / -2);
+          margin-top: calc(calc(100vh - 100px) / -2);
+          text-align: center;
+          background: var(--popup-box-bg-color);
+          overflow-y: auto;
+          overflow-x: hidden;
+        "
+      >
+        <br />
+        <b style="font-size: 30px">Custom room settings</b>
+        <br />
+        <span>Add rooms that aren't listed by default.</span>
+      </div>
+    </div>
+
+    <div id="soundboardElement" hidden>
+      <div
+        style="
+          opacity: 0.5;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+        "
+      ></div>
+      <div
+        style="
+          border-radius: var(--border-radius);
+          width: calc(100vw - 100px);
+          height: calc(100vh - 100px);
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          color: var(--popup-box-text-color);
+          margin-left: calc(calc(100vw - 100px) / -2);
+          margin-top: calc(calc(100vh - 100px) / -2);
+          text-align: center;
+          background: var(--popup-box-bg-color);
+          overflow-y: auto;
+          overflow-x: hidden;
+        "
+      >
+        <br />
+        <b style="font-size: 30px">Shared soundboard</b>
+        <br />
+        <span>This soundboard is heard by everyone in the room.</span>
+        <hr />
+        <style>
+          .soundboardButton {
+            min-width: 100px;
+            min-height: 100px;
+            width: fit-content;
+            height: fit-content;
+            font-size: 20px;
+            background: var(--soundboard-button-bgcolor);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+          }
+          .soundboardButton:hover {
+            background: var(--soundboard-button-hover-bgcolor);
+            cursor: pointer;
+          }
+
+          #soundboardButtons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start; /* Align buttons to the left */
+            gap: 5px; /* Adds space between buttons */
+            width: 100%;
+            height: auto;
+            overflow: auto;
+          }
+        </style>
+
+        <div id="soundboardButtons">
+          <!-- Soundboard buttons will go here -->
+        </div>
+        <hr />
+        <span
+          >Uploaded sounds can be removed by holding shift and clicking
+          them.</span
+        ><br />
+        <button id="soundboardUploadButton">Upload Custom Sound</button>
+        <button
+          onclick="document.getElementById('soundboardElement').hidden = true;"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+    <div id="soundboardAddSoundDialog" hidden>
+      <div
+        style="
+          opacity: 0.5;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+        "
+      ></div>
+      <div
+        style="
+          border-radius: var(--border-radius);
+          width: 300px;
+          height: 150px;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          color: var(--popup-box-text-color);
+          margin-left: calc(300px / -2);
+          margin-top: calc(150px / -2);
+          background: var(--popup-box-bg-color);
+          overflow-y: auto;
+          overflow-x: hidden;
+        "
+      >
+        <br />
+        <b style="font-size: 30px">Add Custom Sound</b>
+        <hr />
+        <span>Name: </span><input type="text" id="customSoundName" /><br />
+        <span>Upload sound: </span><button id="customSoundSelect">Upload</button
+        ><br />
+        <button id="customSoundAdd">Add</button>
+        <button id="customSoundClose">Close</button>
+      </div>
+    </div>
+
+    <div id="microphoneRecommendations" hidden>
+      <div
+        style="
+          opacity: 0.5;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+        "
+      ></div>
+      <div
+        style="
+          border-radius: var(--border-radius);
+          width: calc(100vw - 200px);
+          height: calc(100vh - 200px);
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          color: var(--popup-box-text-color);
+          margin-left: calc(calc(100vw - 200px) / -2);
+          margin-top: calc(calc(100vh - 200px) / -2);
+          text-align: center;
+          background: var(--popup-box-bg-color);
+          overflow-y: auto;
+          overflow-x: hidden;
+        "
+      >
+        <br />
+        <b style="font-size: 30px">Microphone Recomendations</b>
+        <br />
+        <b
+          >To reduce microphone lag and keep quality, its recommended to keep
+          the random rants tab/window focused.</b
+        ><br />
+        <b
+          >If people claim to not hear you, check if your headphones have a mic,
+          if its muted, etc.</b
+        ><br />
+        <b
+          >If screen sharing is done while also using your microphone, you might
+          have lag.</b
+        ><br />
+        <b
+          >Mics do not yet have WebRTC audio streaming yet, however you can use
+          the
+          <a href="https://randomrants-rtc.glitch.me/">Random Rants RTC Demo</a>
+          to use your microphone with better quality</b
+        ><br />
+        <button
+          onclick="document.getElementById('microphoneRecommendations').hidden = true;"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <div id="uploadingfile" hidden>
+      <div
+        style="
+          opacity: 0.5;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+        "
+      ></div>
+      <div
+        style="
+          border-radius: var(--border-radius);
+          width: 600px;
+          height: 400px;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          color: var(--popup-box-text-color);
+          margin-left: -300px;
+          margin-top: -200px;
+          text-align: center;
+          line-height: 180px;
+          background: var(--popup-box-bg-color);
+        "
+      >
+        <b style="color: var(--popup-box-text-color); font-size: 30px">
+          Uploading File...
+        </b>
+        <div style="line-height: 20px; color: var(--popup-box-text-color)">
+          <span>
+            Please wait... Uploading selected file...
+            <br />
+            <b id="filestatus"></b> </span
+          ><br />
+          <div class="centerHorizontal">
+            <progress
+              hidden
+              id="uploadFileProgress"
+              min="0"
+              max="100"
+              value="0"
+              style="width: 100%"
+            ></progress>
+            <div id="loadingCircle" class="loader" style="margin: 0 auto"></div>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      button {
+        font-family: var(--main-font);
+        border: 0;
+        background-color: var(--button-bg-color);
+        font-size: 20px;
+        color: var(--button-text-color);
+      }
+      button:hover {
+        background-color: var(--button-hover-bg-color);
+        color: var(--button-text-color);
+        cursor: pointer;
+      }
+      button[disabled] {
+        background-color: var(--button-disabled-color);
+        cursor: default;
+      }
+      a {
+        font-family: var(--main-font);
+        color: var(--link-text-color);
+      }
+      .noscriptError {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--bg-color);
+        color: var(--main-text-color);
+      }
+    </style>
+
+    <noscript>
+      <div class="noscriptError">
+        <h1>No JavaScript!</h1>
+        <span>
+          Please turn on JavaScript!<br />
+          This webpage depends on JavaScript to work. All common webpages now
+          require JavaScript.<br />
+          JavaScript is what gives webpages the ability to not be solid text,
+          and user interactable interfaces.
+        </span>
+      </div>
+    </noscript>
+
+    <!-- start update notice -->
+
+    <div id="rrUpdatingNotice" hidden>
+      <!--remove hidden attribute to show.-->
+      <div
+        style="
+          opacity: 0.5;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+        "
+      ></div>
+      <div
+        style="
+          border-radius: 10px;
+          width: 600px;
+          height: 400px;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          margin-left: -300px;
+          margin-top: -200px;
+          text-align: center;
+          background: white;
+          overflow: auto;
+          font-size: 18px;
+        "
+      >
+        <b style="color: black; font-size: 30px"
+          >Random Rants is being updated!</b
+        ><br />
+        <hr />
+        <span>Random Rants is currently being updated - this means:</span><br />
+        <span style="font-weight: bold"
+          >Code is constantly changing - The code is always changing and can
+          break for a few seconds.</span
+        ><br />
+        <span style="font-weight: bold"
+          >Parts of the website may stop functioning - Since code is being
+          updated, sometimes it would work but still have certain parts break
+          randomly.</span
+        ><br />
+
+        <button
+          class="roundborder"
+          onclick="document.getElementById('rrUpdatingNotice').hidden = true;"
+        >
+          Ok, continue to Random Rants
+        </button>
+      </div>
+    </div>
+
+    <!-- end update notice -->
+
+    <div id="rrUpdateTime" hidden>
+      <div
+        style="
+          opacity: 0.5;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+        "
+      ></div>
+      <div
+        style="
+          border-radius: 10px;
+          width: 600px;
+          height: 400px;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          margin-left: -300px;
+          margin-top: -200px;
+          text-align: center;
+          background: white;
+          overflow: auto;
+          font-size: 18px;
+        "
+      >
+        <b style="color: black; font-size: 30px">Time to update Random Rants!</b
+        ><br />
+        <hr />
+        <span>Please refresh Random Rants now to update.</span><br />
+        <br />
+
+        <button class="roundborder" onclick="window.location.reload();">
+          Refresh and get updates
+        </button>
+      </div>
+    </div>
+
+    <div id="rrWelcomeScreen" hidden>
+      <div
+        style="
+          opacity: 0.5;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+        "
+      ></div>
+      <div
+        style="
+          border-radius: 10px;
+          width: 600px;
+          height: 400px;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          margin-left: -300px;
+          margin-top: -200px;
+          text-align: center;
+          background: white;
+          overflow: auto;
+          font-size: 18px;
+        "
+      >
+        <b style="color: black; font-size: 30px">Welcome to Random Rants!</b
+        ><br />
+        <button class="roundborder" id="rrWelcomeScreenCloseButton">
+          Close
+        </button>
+        <hr />
+        <span
+          >Random Rants is made for online chatting (mostly for school
+          computers) and also just to have fun, simply type a username and
+          select a room.</span
+        ><br />
+        <span
+          >Give access to notifcations to see when people chat when you are not
+          focused on the Random Rants tab.</span
+        ><br />
+        <span
+          >Be careful when sending and uploading files, once it is uploaded, it
+          may be kept in other hands forever.</span
+        ><br />
+        <br />
+        <h3>Credits:</h3>
+        <br />
+        <span
+          >Microphones, screensharing, and camera are powered by WebRTC.</span
+        ><br />
+        <span
+          >Soundboard is from various memes, soundboard sounds primarily sourced
+          from Scratch.</span
+        ><br />
+        <span
+          >Coded and mainly developed by Gvbvdxx (Jason), suggested and slight
+          improvements by Im_CatmanYT (Eli).</span
+        ><br />
+      </div>
+    </div>
+
+    <script>
+      if (!window.errors) {
+        window.errors = {};
+      }
+    </script>
+    <script src="dialogs.js?n=1"></script>
+    <script src="randomfacttext.js"></script>
+    <script src="jszip.js"></script>
+    <script src="https://randomrants-rtc.glitch.me/wrtc.js"></script>
+    <script src="https://randomrants-rtc.glitch.me/client.js"></script>
+    <script src="https://randomrants-rtc.glitch.me/screenshare.js"></script>
+    <script src="INI.js"></script>
+    <script src="lz-string.js?n=1"></script>
+    <script src="audengine.js?n=1"></script>
+    <script src="error-messages.js?n=1"></script>
+    <script src="data:text/plain;charset=utf-8;base64,LyoqDQpndmJ2ZHh4J3MgY2hhdCBmaWx0ZXIgZG9lcyBub3QgYWxsb3cgYW55IGJhZCB3b3JkcyBzYWlkIA0KKi8NCi8qY2hhdFNlcnZlci5mYWtlTWVzc2FnZSh7DQogICAgY29sb3I6ImdyZWVuIiwNCiAgICBtZXNzYWdlOiJndmJ2ZHh4J3MgYmV0dGVyIGNoYXQgZmlsdGVyIGhhcyBiZWVuIGxvYWRlZC4iDQp9KTsqLw0KLypGb3Igc2FmZSByZWFzb25zIHRvIG1ha2Ugc3VyZSB0aGUgYmFkIHdvcmRzIGFyZSBjb252ZXJ0ZWQgc28gdGhleSBhcmUgbm90IHJlYWRhYmxlIGJ5IGh1bWFucyBleWUqLw0KdmFyIGJhZFdvcmRzRW5jb2RlZCA9IFsNCgkiWm5WamF3PT0iLA0KCSJZWE56IiwNCgkiWVhOemFHOXNaUT09IiwNCgkiY0c5eWJnPT0iLA0KCSJjMmhwZEE9PSIsDQoJIlpHbGphdz09IiwNCgkiYUdWamF3PT0iLA0KCSJkM1JtIiwNCgkiZEdWemRHSmhaSGR2Y21RPSINCl07DQpmdW5jdGlvbiBmaWx0ZXJTdHJpbmcoc3RyaW5nKSB7DQoJdmFyIGkgPSAwOw0KCXZhciBiYWR3b3Jkc0RlY29kZWQgPSBbXTsNCgl3aGlsZSAoaSA8IGJhZFdvcmRzRW5jb2RlZC5sZW5ndGgpIHsNCgkJYmFkd29yZHNEZWNvZGVkLnB1c2goYXRvYihiYWRXb3Jkc0VuY29kZWRbaV0pKTsNCgkJaSArPSAxOw0KCX0NCgl2YXIgYmFkV29yZHNMb2NhdGVkID0gZmFsc2U7DQoJaSA9IDA7DQoJdmFyIHRleHRTcGxpdGVkID0gc3RyaW5nLnNwbGl0KCcgJyk7DQoJd2hpbGUgKGkgPCB0ZXh0U3BsaXRlZC5sZW5ndGgpIHsNCgkJaWYgKCEoYmFkd29yZHNEZWNvZGVkLmluZGV4T2YodGV4dFNwbGl0ZWRbaV0pKSA9PSAtMSkgew0KCQkJaWYgKCEoYmFkV29yZHNMb2NhdGVkKSkgew0KCQkJCWJhZFdvcmRzTG9jYXRlZCA9IHRydWU7DQoJCQl9DQoJCX0NCgkJaSArPSAxOw0KCX0NCgliYWRXb3Jkc0xvY2F0ZWQgPSBmYWxzZTsNCglyZXR1cm4gKGJhZFdvcmRzTG9jYXRlZCk7DQp9"></script>
+
+    <scirpt src="webrtc-screen-share.js?n=1"></scirpt>
+
+    <script src="https://randomrants-poll.glitch.me/poll.js"></script>
+
+    <script src="chat.js" onerror="window.alert(e);"></script>
+
+    <script src="adminchat.js?n=1"></script>
+    <script src="screen-share-2.js?n=1"></script>
+    <script src="confetti.js?n=1"></script>
+    <script>
+      //Lame script that makes install button work.
+      //Mostly copied and pasted from google chrome's web-application docs.
+      var deferredPrompt = null;
+      var btnAdd = document.getElementById("installApp");
+      var installAppPrompt = document.getElementById("installAppPrompt");
+      btnAdd.style.display = "none";
+      installAppPrompt.hidden = true;
+      window.addEventListener("beforeinstallprompt", (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can add to home screen
+        btnAdd.style.display = "block";
+        installAppPrompt.hidden = true;
+      });
+
+      btnAdd.addEventListener("click", (e) => {
+        // hide our user interface that shows our A2HS button
+        btnAdd.style.display = "none";
+        installAppPrompt.hidden = false;
+        // Show the prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === "accepted") {
+            console.log("User accepted the A2HS prompt");
+            installAppPrompt.hidden = true;
+          } else {
+            console.log("User dismissed the A2HS prompt");
+          }
+          deferredPrompt = null;
+        });
+      });
+    </script>
+  </body>
+</html>
