@@ -503,23 +503,23 @@ var stunServerList = [
       "https://cdn.glitch.global/7c96d5e9-c306-40b6-a0ef-5f5da70ecb6b/Sad2.png?v=1715340685313",
       "https://cdn.glitch.global/fa5e6d1e-8b42-4a21-81e8-03fd7cd6401a/sonic-shocked.gif?v=1714955288854",
       "https://cdn.glitch.global/7c96d5e9-c306-40b6-a0ef-5f5da70ecb6b/cat.png?v=1715342049891",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/audio.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/clearchat.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/image.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/import.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/mail.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/mic-active.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/mic.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/nomail.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/screenshare.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/send.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/sendhidden.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/stopscreenshare.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/video.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-angry.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-crying.svg",
-      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-eyebrow.svg",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/audio.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/clearchat.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/image.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/import.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/mail.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/mic-active.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/mic.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/nomail.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/screenshare.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/send.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/sendhidden.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/stopscreenshare.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/video.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-angry.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-crying.svg?n=1",
+      "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-eyebrow.svg?n=1",
       "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-hmm.svg",
       "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-laughing.svg",
       "https://random-rants-chat.github.io/randomrants-emojis/icons/emoji-meh.svg",
@@ -1152,160 +1152,24 @@ var stunServerList = [
 
     var soundboardSoundZips = ["soundboard.zip"];
 
-    var soundboardSounds = [
-      {
-        url: "Fard.wav",
-        name: "Fard",
-      },
-      {
-        url: "AmogusSussy.wav",
-        name: "Sussy",
-      },
-      {
-        url: "pause-or-balls-which-one.wav",
-        name: "Ballz",
-      },
-      {
-        url: "vineboom.wav",
-        name: "Vineboom",
-      },
-      {
-        url: "laughing-chihuahua.mp3",
-        name: "Laughing Chihuahua",
-      },
-      {
-        url: "ClickityClackity.wav",
-        name: "Clickity Clackity",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/aughhhhh.wav",
-        name: "Aughhhhh",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/bombastic-side-eye.wav",
-        name: "Bombastic Side Eye",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/bonk.wav",
-        name: "Bonk",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/bruh.mp3",
-        name: "Bruh",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/can-i-haz-chezburger-pls.wav",
-        name: "Can I haz chezburger pls",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/clash-royale-hog-rider.wav",
-        name: "HOG RIDER",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/e_meme.wav",
-        name: "E",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/emotional-damage-meme.mp3",
-        name: "Emotional damage!",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/fnaf.wav",
-        name: "Man singing FNAF",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/fortnite-default-dance-bass-boosted.wav",
-        name: "Fortnite Default Dance",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/goofy-ahh-car-horn-sound-effect.wav",
-        name: "Goofy car horn",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/goofy-ahh-runnin.wav",
-        name: "Goofy running sounds",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/grubhub.wav",
-        name: "Grubhub",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/gulp-gulp-gulp.wav",
-        name: "Gulp gulp gulp",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/he-he-he-ha.wav",
-        name: "He He He Ha!",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/i-woke-up-in-a-new-bugatti.wav",
-        name: "I woke up in a new bugatti",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/im-lovin-it.wav",
-        name: "Im lovin' it",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/im-the-biggest-bird.wav",
-        name: "I'm the biggest bird",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/indian-music-mp3cut.wav",
-        name: "Indian music",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/john-cena-are-you-sure-about-that-greenscreen-improved-version.wav",
-        name: "Are you sure about that?",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/mine-diamonds.mp3",
-        name: "Mine diamonds",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/nooo.wav",
-        name: "Nooooo!",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/rehehehe.mp3",
-        name: "Rehehehe",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/sad-violin.mp3",
-        name: "Sad violin",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/samsung-notifcation.mp3",
-        name: "Samsung Notifcation",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/shimmy-shimmy.wav",
-        name: "Shimmy Shimmy Ay",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/siuuuuu.wav",
-        name: "Siuuuuu",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/tacobell.mp3",
-        name: "Taco Bell",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/wanna-break-from-the-ads.wav",
-        name: "Wanna break from the ads?",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/what-the-dog-doin.wav",
-        name: "What the dog doin",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/windows-error.mp3",
-        name: "Windows error",
-      },
-      {
-        url: "https://random-rants-chat.github.io/randomrants-soundboard/yeet-sound-effect.wav",
-        name: "YEET!",
-      },
-    ];
+    function fetchJSON(url, options) {
+      return new Promise((resolve, reject) => {
+        fetch(url, options)
+          .then((response) => {
+            response
+              .json()
+              .then((json) => {
+                resolve(json);
+              })
+              .catch(reject);
+          })
+          .catch(reject);
+      });
+    }
+
+    var soundboardSounds = await fetchJSON(
+      "https://random-rants-chat.github.io/randomrants-soundboard/soundboard.json"
+    );
     rrLoadingStatus.textContent = "Reading custom soundboard sounds...";
     if (localStorage.getItem("customSBSounds")) {
       var addedsounds = JSON.parse(localStorage.getItem("customSBSounds"));
@@ -1377,6 +1241,105 @@ var stunServerList = [
           "fromColorPalleteButton"
         );
         var fromColorButton = document.getElementById("fromColorButton");
+        
+        window.chat = {
+          server: class {
+            constructor() {
+              this.getWebsocket = function () {
+                return window.websocket;
+              };
+              this.leaveChat = function (options) {
+                window.location.reload();
+              };
+              this.fakeMessage = function (options) {
+                if (true) {
+                  var username = usernameElement.value;
+                  var pluginextra = "";
+                  if (options.name) {
+                    pluginextra += " - " + options.name;
+                  }
+                  var data = {
+                    username: "[server" + pluginextra + "]",
+                    message: options.message,
+                    profile: window.serverProfilePicture,
+                    ip: "server.0.0.0.0",
+                    room: window.server,
+                    color: options.color,
+                    activated: window.specialCommandsActivated,
+                  };
+
+                  showMessageChat(data);
+                }
+              };
+              this.sendMessage = function (options) {
+                if (true) {
+                  var username = usernameElement.value;
+                  var pluginextra = "";
+                  if (options.name) {
+                    pluginextra += " - " + options.name;
+                  }
+                  var data = {
+                    username: "[server" + pluginextra + "]",
+                    message: options.message,
+                    profile: window.serverProfilePicture,
+                    ip: "server.0.0.0.0",
+                    room: window.server,
+                    color: options.color,
+                    activated: window.specialCommandsActivated,
+                  };
+
+                  window.websocket.send(JSON.stringify(data));
+                }
+              };
+              this.sendMessageUser = function (options) {
+                var username = usernameElement.value;
+
+                var data = {
+                  username: username,
+                  message: options.message,
+                  profile: window.profilePicture,
+                  ip: window.currentIP,
+                  room: window.server,
+                  color: options.color,
+                  activated: window.specialCommandsActivated,
+                };
+                window.websocket.send(JSON.stringify(data));
+              };
+              this.banUser = function (options) {
+                localStorage.setItem("banded", "yes");
+                window.location.reload();
+              };
+              this.elements = {
+                typedOutMessage: document.getElementById("text"),
+              };
+              this.clearChat = function () {
+                window.messages.children[0].innerHTML = "";
+              };
+              this.addEventListener = function (eventName, funct) {
+                try {
+                  window.chat.listeners["on" + eventName].push(funct);
+                } catch (e) {}
+              };
+            }
+          },
+          audio: class {
+            constructor() {
+              this.notifySound = function () {
+                window.notify.currentTime = 0;
+                window.notify.play();
+              };
+              this.clickSound = function () {
+                window.click.currentTime = 0;
+                window.click.play();
+              };
+              this.typeSound = function () {
+                window.type.currentTime = 0;
+                window.type.play();
+              };
+            }
+          },
+          listeners: { onmessage: [], onsend: [] },
+        };
 
         function addColorPalleteDiv(color) {
           var div = document.createElement("div");
@@ -3120,6 +3083,33 @@ var stunServerList = [
           var ssVideoContainer = document.getElementById("ssVideoContainer");
           var currentPolls = {};
           var votedPolls = {};
+          var soundboardSoundVolume = 1;
+          var soundboardSoundIDCount = 0;
+          var soundboardSoundsPlaying = [];
+          var soundboardVolumeInput = document.getElementById(
+            "soundboardVolumeInput"
+          );
+          function setSoundboardVolume() {
+            soundboardSoundVolume = Number(soundboardVolumeInput.value) / 100;
+          }
+          soundboardVolumeInput.oninput = function () {
+            setSoundboardVolume();
+            localStorage.setItem("sbVolume", soundboardVolumeInput.value);
+          };
+          if (localStorage.getItem("sbVolume")) {
+            soundboardVolumeInput.value = localStorage.getItem("sbVolume");
+          }
+
+          setSoundboardVolume();
+          setInterval(() => {
+            try {
+              for (var sbaudio of soundboardSoundsPlaying) {
+                sbaudio.audio.setVolume(soundboardSoundVolume);
+              }
+            } catch (e) {
+              window.alert(e);
+            }
+          }, 1000 / 30);
           function updateSSMute() {
             if (ssVideo.volume == 0) {
               ssMute.textContent = "Unmute";
@@ -3230,23 +3220,49 @@ var stunServerList = [
                 return;
               }
               if (data.type == "playSoundboard") {
-                if (data.soundURL) {
-                  (async function () {
-                    var snddata = savedSoundboardSoundURLS[data.soundURL];
-                    if (!snddata) {
-                      snddata = await window.loadSoundURL(data.soundURL);
-                      savedSoundboardSoundURLS[data.soundURL] = snddata;
+                soundboardSoundIDCount += 1;
+                var _sbid = soundboardSoundIDCount;
+                (async function () {
+                  try {
+                    if (data.soundURL) {
+                      var snddata = savedSoundboardSoundURLS[data.soundURL];
+                      if (!snddata) {
+                        snddata = await window.loadSoundURL(data.soundURL);
+                        savedSoundboardSoundURLS[data.soundURL] = snddata;
+                      }
+                    } else {
+                      var snddata = soundboardSounds[data.soundIndex].data;
                     }
                     var audio = new window.AudioApiReplacement(snddata);
+                    var sbaudio = {
+                      id: _sbid,
+                      audio: audio,
+                    };
+                    soundboardSoundsPlaying.push(sbaudio);
                     audio.play();
-                  })();
-                  return;
+                    audio.setVolume(soundboardSoundVolume);
+                    audio.onended = function () {
+                      var newSBAUDIO = [];
+                      for (var sba of soundboardSoundsPlaying) {
+                        if (sba.id !== sbaudio.id) {
+                          newSBAUDIO.push(sba);
+                        }
+                      }
+                      soundboardSoundsPlaying = newSBAUDIO;
+                    };
+                  } catch (e) {
+                    dialog.alert(e);
+                  }
+                })();
+                return;
+
+                return;
+              }
+              if (data.type == "stopSoundboard") {
+                for (var sbaudio of soundboardSoundsPlaying) {
+                  sbaudio.audio.pause();
                 }
-                if (soundboardSounds[data.soundIndex]) {
-                  var snd = soundboardSounds[data.soundIndex];
-                  var audio = new window.AudioApiReplacement(snd.data);
-                  audio.play();
-                }
+                soundboardSoundsPlaying = [];
                 return;
               }
               if (data.type == "ssEnd") {
@@ -3844,104 +3860,6 @@ var stunServerList = [
           document.getElementById("usernameSetup").hidden = true;
           dialog.alert("You have been banned!");
         }
-        window.chat = {
-          server: class {
-            constructor() {
-              this.getWebsocket = function () {
-                return window.websocket;
-              };
-              this.leaveChat = function (options) {
-                window.location.reload();
-              };
-              this.fakeMessage = function (options) {
-                if (true) {
-                  var username = usernameElement.value;
-                  var pluginextra = "";
-                  if (options.name) {
-                    pluginextra += " - " + options.name;
-                  }
-                  var data = {
-                    username: "[server" + pluginextra + "]",
-                    message: options.message,
-                    profile: window.serverProfilePicture,
-                    ip: "server.0.0.0.0",
-                    room: window.server,
-                    color: options.color,
-                    activated: window.specialCommandsActivated,
-                  };
-
-                  showMessageChat(data);
-                }
-              };
-              this.sendMessage = function (options) {
-                if (true) {
-                  var username = usernameElement.value;
-                  var pluginextra = "";
-                  if (options.name) {
-                    pluginextra += " - " + options.name;
-                  }
-                  var data = {
-                    username: "[server" + pluginextra + "]",
-                    message: options.message,
-                    profile: window.serverProfilePicture,
-                    ip: "server.0.0.0.0",
-                    room: window.server,
-                    color: options.color,
-                    activated: window.specialCommandsActivated,
-                  };
-
-                  window.websocket.send(JSON.stringify(data));
-                }
-              };
-              this.sendMessageUser = function (options) {
-                var username = usernameElement.value;
-
-                var data = {
-                  username: username,
-                  message: options.message,
-                  profile: window.profilePicture,
-                  ip: window.currentIP,
-                  room: window.server,
-                  color: options.color,
-                  activated: window.specialCommandsActivated,
-                };
-                window.websocket.send(JSON.stringify(data));
-              };
-              this.banUser = function (options) {
-                localStorage.setItem("banded", "yes");
-                window.location.reload();
-              };
-              this.elements = {
-                typedOutMessage: document.getElementById("text"),
-              };
-              this.clearChat = function () {
-                window.messages.children[0].innerHTML = "";
-              };
-              this.addEventListener = function (eventName, funct) {
-                try {
-                  window.chat.listeners["on" + eventName].push(funct);
-                } catch (e) {}
-              };
-            }
-          },
-          audio: class {
-            constructor() {
-              this.notifySound = function () {
-                window.notify.currentTime = 0;
-                window.notify.play();
-              };
-              this.clickSound = function () {
-                window.click.currentTime = 0;
-                window.click.play();
-              };
-              this.typeSound = function () {
-                window.type.currentTime = 0;
-                window.type.play();
-              };
-            }
-          },
-          listeners: { onmessage: [], onsend: [] },
-        };
 
         ////////////////////////////////////
         var video = document.createElement("video");
@@ -5128,7 +5046,10 @@ var stunServerList = [
         );
         window.click = new window.AudioApiReplacement(
           await window.loadSoundURL(
-            await preloader.getURL("https://random-rants-chat.github.io/randomrants-resources/select-sound-121244.mp3", "sounds")
+            await preloader.getURL(
+              "https://random-rants-chat.github.io/randomrants-resources/select-sound-121244.mp3",
+              "sounds"
+            )
           )
         );
         window.typeLoadedData = await window.loadSoundURL(
@@ -5167,6 +5088,8 @@ var stunServerList = [
         function loadSoundboardButtons() {
           var i = 0;
           soundboardButtons.innerHTML = "";
+          var button = createSoundboardStopButton(sound, i);
+          soundboardButtons.append(button);
           for (var sound of soundboardSounds) {
             if (sound) {
               var button = createSoundboardButton(sound, i);
@@ -5238,6 +5161,24 @@ var stunServerList = [
           button.className = "soundboardButton";
           return button;
         }
+
+        function createSoundboardStopButton() {
+          var button = document.createElement("div");
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.websocket.send(
+              JSON.stringify({
+                room: window.server,
+                type: "stopSoundboard",
+                username: username.value,
+              })
+            );
+          });
+          button.textContent = "STOP";
+          button.className = "soundboardButtonStop";
+          return button;
+        }
+
         var i = 0;
         var sbZips = [];
         rrLoadingStatus.textContent = "Loading shared soundboard sounds...";
@@ -5250,36 +5191,49 @@ var stunServerList = [
         var loaded = 0;
         var neededToLoad = soundboardSounds.length;
         for (var sound of soundboardSounds) {
-          if (!sound.isCustom) {
-            if (typeof sound.zipfile == "string") {
-              try {
-                var file = null;
-                for (var sbZip of sbZips) {
-                  if (sbZip.files[sound.zipfile]) {
-                    file = sbZip.files[sound.zipfile];
+          (async function () {
+            if (!sound.isCustom) {
+              if (typeof sound.zipfile == "string") {
+                try {
+                  var file = null;
+                  for (var sbZip of sbZips) {
+                    if (sbZip.files[sound.zipfile]) {
+                      file = sbZip.files[sound.zipfile];
+                    }
                   }
+                  if (!file) {
+                    dialog.alert(
+                      `${sound.zipfile} does not exist in a soundboard zip file`
+                    );
+                    return;
+                  }
+                  var arrayBuffer = await file.async("arrayBuffer");
+                  sound.data = await window.decodeAsync(arrayBuffer);
+                  //window.alert(sound.data);
+                } catch (e) {
+                  dialog.alert(e);
                 }
-                if (!file) {
-                  dialog.alert(
-                    `${sound.zipfile} does not exist in a soundboard zip file`
-                  );
-                  return;
-                }
-                var arrayBuffer = await file.async("arrayBuffer");
-                sound.data = await window.decodeAsync(arrayBuffer);
-                //window.alert(sound.data);
-              } catch (e) {
-                dialog.alert(e);
+              } else {
+                sound.data = await window.loadSoundURL(sound.url);
               }
-            } else {
-              sound.data = await window.loadSoundURL(sound.url);
             }
-          }
-          i += 1;
-          loaded += 1;
-          var percent = Math.round((loaded/neededToLoad)*100);
-          rrLoadingStatus.textContent = "Loading shared soundboard sounds... ("+percent+"%)";
+            i += 1;
+            loaded += 1;
+            var percent = Math.round((loaded / neededToLoad) * 100);
+            rrLoadingStatus.textContent =
+              "Loading shared soundboard sounds... (" + percent + "%)";
+          })();
         }
+        await (function () {
+          return new Promise((accept, reject) => {
+            var sbinterval = setInterval(() => {
+              if (loaded == neededToLoad) {
+                clearInterval(sbinterval);
+                accept();
+              }
+            }, 1000 / 60);
+          });
+        })();
         loadSoundboardButtons();
         var selectedCustomSoundURL = "";
         soundboardUploadButton.onclick = function () {
@@ -5418,6 +5372,15 @@ var stunServerList = [
             rrWelcomeScreen.hidden = true;
           };
         }
+        
+        
+        function addScriptSRC (src) {
+          var script = document.createElement("script");
+          script.src = src;
+          document.body.append(script);
+        }
+        
+        addScriptSRC("adminchat.js");
       })();
     } catch (e) {
       handleErrors(e);
