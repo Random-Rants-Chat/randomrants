@@ -102,6 +102,9 @@
 
         --soundboard-button-bgcolor: #a1a1a1;
         --soundboard-button-hover-bgcolor: #bfbfbf;
+        
+        --soundboard-stop-button-bgcolor: #d90000;
+        --soundboard-stop-button-hover-bgcolor: #ff0000;
 
         --usercolors-1: #ff0000;
         --usercolors-2: #ff6f00;
@@ -584,10 +587,10 @@
           "
         />
         <button id="Send" class="roundborder" title="Send message">
-          <img src="https://random-rants-chat.github.io/randomrants-emojis/icons/send.svg" height="25" />
+          <img src="https://random-rants-chat.github.io/randomrants-emojis/icons/send.svg?n=1" height="25" />
         </button>
         <button id="SendHidden" class="roundborder" title="Send hidden message">
-          <img src="https://random-rants-chat.github.io/randomrants-emojis/icons/sendhidden.svg" height="25" />
+          <img src="https://random-rants-chat.github.io/randomrants-emojis/icons/sendhidden.svg?n=1" height="25" />
         </button>
         <button
           id="Clear"
@@ -595,7 +598,7 @@
           class="roundborder"
           title="Clear chat"
         >
-          <img src="https://random-rants-chat.github.io/randomrants-emojis/icons/clearchat.svg" height="25" />
+          <img src="https://random-rants-chat.github.io/randomrants-emojis/icons/clearchat.svg?n=1" height="25" />
         </button>
         <br />
         <br />
@@ -1244,6 +1247,25 @@
             background: var(--soundboard-button-hover-bgcolor);
             cursor: pointer;
           }
+          
+          .soundboardButtonStop {
+            min-width: 100px;
+            min-height: 100px;
+            width: fit-content;
+            height: fit-content;
+            font-size: 20px;
+            background: var(--soundboard-stop-button-bgcolor);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+          }
+          .soundboardButtonStop:hover {
+            background: var(--soundboard-stop-button-hover-bgcolor);
+            cursor: pointer;
+          }
 
           #soundboardButtons {
             display: flex;
@@ -1264,6 +1286,8 @@
           >Uploaded sounds can be removed by holding shift and clicking
           them.</span
         ><br />
+        <b>Soundboard volume</b><input type="range" min="0" max="100" value="100" id="soundboardVolumeInput">
+        <br />
         <button id="soundboardUploadButton">Upload Custom Sound</button>
         <button
           onclick="document.getElementById('soundboardElement').hidden = true;"
@@ -1651,7 +1675,6 @@
 
     <script src="chat.js" onerror="window.alert(e);"></script>
 
-    <script src="adminchat.js?n=1"></script>
     <script src="screen-share-2.js?n=1"></script>
     <script src="confetti.js?n=1"></script>
     <script>
