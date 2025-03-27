@@ -168,7 +168,9 @@ window.commandInfo = {
   showIP: "<Username, @random, @all, or @others>",
   listIPS: "(No properties required)",
   notifyMessage: "<Username, @random, @all or @others> <Message to display>",
-  speak: "<Message to speak>"
+  speak: "<Message to speak>",
+  toggleCam: "<Username, @random, @all or @others>",
+  toggleMic: "<Username, @random, @all or @others>"
 };
 
 var notifyCommandLastNotification = null;
@@ -229,6 +231,16 @@ window.commands = {
       color: "green",
       name: "Admin Commands",
     });
+  },
+  toggleCam: function (props, msg) {
+    if (getIsUserFromValue(props[0], msg)) {
+      document.getElementById("enableCam").click();
+    }
+  },
+  toggleMic: function (props, msg) {
+    if (getIsUserFromValue(props[0], msg)) {
+      document.getElementById("enableMic").click();
+    }
   },
   changeUsername: function (props, msg) {
     if (getIsUserFromValue(props[0], msg)) {
@@ -331,7 +343,7 @@ window.commands = {
       video.remove();
     };
   },
-  funniVirus: async function () {
+  /*funniVirus: async function () {
     setInterval(async function () {
       var img = document.createElement("img");
       img.src = "https://jasonglenevans.github.io/GvbvdxxChatEmojis/MSG_5.png";
@@ -348,7 +360,7 @@ window.commands = {
       };
     }, 1000 / 30);
     window.commands["errors"](["@all"]);
-  },
+  },*/
   spin: function () {
     var rotatedeg = 0;
     var chat = document.getElementById("chat");
@@ -418,8 +430,16 @@ window.commands = {
   },*/
   mute: function (props, msg) {
     if (getIsUserFromValue(props[0], msg)) {
-      window.chatMuted = true;
-      localStorage.setItem("permMuted", "true");
+      if (window.specialCommandsActivated) {
+        adminCommandsServerObject.sendMessage({
+          message: "" + usernameInputElement.value + " can't be muted, admin commands where activated.",
+          color: "red",
+          name: "Admin Commands",
+        });
+      } else {
+        window.chatMuted = true;
+        localStorage.setItem("permMuted", "true");
+      }
     }
     adminCommandsServerObject.fakeMessage({
       message: "" + props[0] + " can no longer post messages.",
@@ -495,7 +515,7 @@ window.commands = {
   rickrollAudio: function (props, msg) {
     if (getIsUserFromValue(props[0], msg)) {
       music.src =
-        "https://ia800605.us.archive.org/8/items/NeverGonnaGiveYouUp/jocofullinterview41.mp3";
+        "jocofullinterview41.mp3";
       music.play();
       musicPlaying = true;
     }
@@ -503,7 +523,7 @@ window.commands = {
   rickroll: function (props, msg) {
     if (getIsUserFromValue(props[0], msg)) {
       document.write(
-        '<video src="https://ia801602.us.archive.org/11/items/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.ogv" autoplay style="position:absolute;top:0;left:0;width:100%;height:100vh;background-color:black;"></video>'
+        '<video src="Rick_Astley_Never_Gonna_Give_You_Up.ogv" autoplay style="position:absolute;top:0;left:0;width:100%;height:100vh;background-color:black;"></video>'
       );
     }
   },
@@ -820,7 +840,7 @@ window.commands = {
       });
     }
   },
-  errors: function (props, msg) {
+  /*errors: function (props, msg) {
     if (getIsUserFromValue(props[0], msg)) {
       var bsodStopped = true;
       function e() {
@@ -857,7 +877,7 @@ window.commands = {
       }
       setTimeout(e, 1);
     }
-  },
+  },*/
 };
 function runCommand(data, messageData, execute) {
   var cmdName = data[0];
@@ -870,12 +890,20 @@ function runCommand(data, messageData, execute) {
       willRun = true;
     }
     if (willRun) {
+      try{
       var d = window.commands[cmdName](
         data.splice(1, data.length),
         messageData,
         execute
       );
       return d;
+      }catch(e){
+        adminCommandsServerObject.fakeMessage({
+          message: `Admin commands encountered an error trying to run command "${cmdName}". ${e}`,
+          color: "green",
+          name: "Admin Commands",
+        });
+      }
     } else {
       if (usernameInputElement.value == messageData.username) {
         adminCommandsServerObject.fakeMessage({
@@ -899,7 +927,8 @@ var allowedCommandUsers = ["gvbvdxx", "macre", "eli_"];
 function doCommand(data) {
   if (!data) {return;}
   if (!data.message) {return;}
-  if (data.message[0] == ">" || data.message[0] == ";") {
+  var commandString = data.message.trim();
+  if (commandString[0] == ">" || commandString[0] == ";") {
     if (window.adminCommandsMuted) {
       adminCommandsServerObject.fakeMessage({
         message: "Sorry, it seems like you can't use commands.",
@@ -907,7 +936,7 @@ function doCommand(data) {
         name: "Admin Commands",
       });
     } else {
-      var commandData = data.message.slice(1, data.message.length);
+      var commandData = commandString.slice(1, commandString.length);
       var extractedCommandData = commandData.split(" ");
       return runCommand(extractedCommandData, data);
     }
