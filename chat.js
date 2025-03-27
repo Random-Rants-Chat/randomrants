@@ -1,3 +1,5 @@
+var soundboardEnabled = true;
+
 function handleErrors(e) {
   //Handle errors and display them to the user,
   //also log inside the devloper tools console
@@ -93,6 +95,7 @@ var stunServerList = [
     }
 
     var loadingStream = loadingCVS.captureStream(60);
+    var soundboardButtons = document.getElementById("soundboardButtons");
 
     var mainModes = [
       {
@@ -917,6 +920,35 @@ var stunServerList = [
         iniSection: "SoundboardStyles",
         iniName: "HoveredButtonColor",
       },
+      "--soundboard-button-border-color": {
+        label: "(Soundboard) Button hover border color",
+        type: "color",
+        value: "#545454",
+        iniSection: "SoundboardStyles",
+        iniName: "ButtonBorderColor",
+      },
+      
+      "--soundboard-stop-button-bgcolor": {
+        label: "(Soundboard) Stop Button background color",
+        type: "color",
+        value: "#d90000",
+        iniSection: "SoundboardStyles",
+        iniName: "ButtonColor",
+      },
+      "--soundboard-stop-button-hover-bgcolor": {
+        label: "(Soundboard) Stop Button hover background color",
+        type: "color",
+        value: "#ff0000",
+        iniSection: "SoundboardStyles",
+        iniName: "HoveredButtonColor",
+      },
+      "--soundboard-stop-button-border-color": {
+        label: "(Soundboard) Stop Button hover border color",
+        type: "color",
+        value: "#750000",
+        iniSection: "SoundboardStyles",
+        iniName: "ButtonBorderColor",
+      },
       /*"--usercolors-1": {
         label: "(User Pallete Colors) Color 1",
         type: "color",
@@ -1166,16 +1198,19 @@ var stunServerList = [
           .catch(reject);
       });
     }
-
-    var soundboardSounds = await fetchJSON(
-      "https://random-rants-chat.github.io/randomrants-soundboard/soundboard.json"
-    );
-    rrLoadingStatus.textContent = "Reading custom soundboard sounds...";
-    if (localStorage.getItem("customSBSounds")) {
-      var addedsounds = JSON.parse(localStorage.getItem("customSBSounds"));
-      for (var newsound of addedsounds) {
-        newsound.isCustom = true;
-        soundboardSounds.push(newsound);
+    var soundboardButtonIds = {};
+    if (soundboardEnabled) {
+      var soundboardSounds = await fetchJSON(
+        "https://random-rants-chat.github.io/randomrants-soundboard/soundboard.json"
+      );
+      var soundboardButtonPlayingBy = {};
+      rrLoadingStatus.textContent = "Reading custom soundboard sounds...";
+      if (localStorage.getItem("customSBSounds")) {
+        var addedsounds = JSON.parse(localStorage.getItem("customSBSounds"));
+        for (var newsound of addedsounds) {
+          newsound.isCustom = true;
+          soundboardSounds.push(newsound);
+        }
       }
     }
 
@@ -1241,7 +1276,7 @@ var stunServerList = [
           "fromColorPalleteButton"
         );
         var fromColorButton = document.getElementById("fromColorButton");
-        
+
         window.chat = {
           server: class {
             constructor() {
@@ -3083,33 +3118,56 @@ var stunServerList = [
           var ssVideoContainer = document.getElementById("ssVideoContainer");
           var currentPolls = {};
           var votedPolls = {};
-          var soundboardSoundVolume = 1;
-          var soundboardSoundIDCount = 0;
-          var soundboardSoundsPlaying = [];
-          var soundboardVolumeInput = document.getElementById(
-            "soundboardVolumeInput"
-          );
-          function setSoundboardVolume() {
-            soundboardSoundVolume = Number(soundboardVolumeInput.value) / 100;
-          }
-          soundboardVolumeInput.oninput = function () {
-            setSoundboardVolume();
-            localStorage.setItem("sbVolume", soundboardVolumeInput.value);
-          };
-          if (localStorage.getItem("sbVolume")) {
-            soundboardVolumeInput.value = localStorage.getItem("sbVolume");
-          }
 
-          setSoundboardVolume();
-          setInterval(() => {
-            try {
-              for (var sbaudio of soundboardSoundsPlaying) {
-                sbaudio.audio.setVolume(soundboardSoundVolume);
-              }
-            } catch (e) {
-              window.alert(e);
+          if (soundboardEnabled) {
+            var soundboardSoundVolume = 1;
+            var soundboardSoundIDCount = 0;
+            var soundboardSoundsPlaying = [];
+            var soundboardVolumeInput = document.getElementById(
+              "soundboardVolumeInput"
+            );
+            function setSoundboardVolume() {
+              soundboardSoundVolume = Number(soundboardVolumeInput.value) / 100;
             }
-          }, 1000 / 30);
+            soundboardVolumeInput.oninput = function () {
+              setSoundboardVolume();
+              localStorage.setItem("sbVolume", soundboardVolumeInput.value);
+            };
+            if (localStorage.getItem("sbVolume")) {
+              soundboardVolumeInput.value = localStorage.getItem("sbVolume");
+            }
+
+            setSoundboardVolume();
+            setInterval(() => {
+                var usernameButtonText = {};
+                var sbIDPrefix = "sbButtonUsernames-";
+                for (var sbaudio of soundboardSoundsPlaying) {
+                  sbaudio.audio.setVolume(soundboardSoundVolume);
+                  if (!sbaudio.url) {
+                    if (typeof usernameButtonText[sbaudio.index] == "undefined") {
+                      usernameButtonText[sbaudio.index] = [];
+                    }
+                    var sbarray = usernameButtonText[sbaudio.index];
+                    if (sbarray.indexOf(sbaudio.username) < 0) {
+                      sbarray.push(sbaudio.username);
+                    }
+                  }
+                }
+                
+                for (var s of Object.keys(soundboardButtonIds)) {
+                  var usernamesSpan = soundboardButtonIds[s];
+                  if (usernameButtonText[s]) {
+                    usernamesSpan.textContent = "🔊" + (usernameButtonText[s].join(", "));
+                    var r1 = ((Math.random()*2)+0.5) * 2;
+                    var r2 = ((Math.random()*2)+0.5) * 2;
+                    usernamesSpan.style.translate = `${r1}px ${r2}px`;
+                  } else {
+                    usernamesSpan.textContent = "";
+                    usernamesSpan.style.translate = "";
+                  }
+                }
+            }, 1000 / 30);
+          }
           function updateSSMute() {
             if (ssVideo.volume == 0) {
               ssMute.textContent = "Unmute";
@@ -3219,71 +3277,77 @@ var stunServerList = [
 
                 return;
               }
-              if (data.type == "playSoundboard") {
-                soundboardSoundIDCount += 1;
-                var _sbid = soundboardSoundIDCount;
-                (async function () {
-                  try {
-                    if (data.soundURL) {
-                      var snddata = savedSoundboardSoundURLS[data.soundURL];
-                      if (!snddata) {
-                        snddata = await window.loadSoundURL(data.soundURL);
-                        savedSoundboardSoundURLS[data.soundURL] = snddata;
-                      }
-                    } else {
-                      var snddata = soundboardSounds[data.soundIndex].data;
-                    }
-                    var audio = new window.AudioApiReplacement(snddata);
-                    var sbaudio = {
-                      id: _sbid,
-                      audio: audio,
-                    };
-                    soundboardSoundsPlaying.push(sbaudio);
-                    audio.play();
-                    audio.setVolume(soundboardSoundVolume);
-                    audio.onended = function () {
-                      var newSBAUDIO = [];
-                      for (var sba of soundboardSoundsPlaying) {
-                        if (sba.id !== sbaudio.id) {
-                          newSBAUDIO.push(sba);
+              if (soundboardEnabled) {
+                if (data.type == "playSoundboard") {
+                  soundboardSoundIDCount += 1;
+                  var _sbid = soundboardSoundIDCount;
+                  (async function () {
+                    try {
+                      if (data.soundURL) {
+                        var snddata = savedSoundboardSoundURLS[data.soundURL];
+                        if (!snddata) {
+                          snddata = await window.loadSoundURL(data.soundURL);
+                          savedSoundboardSoundURLS[data.soundURL] = snddata;
                         }
+                      } else {
+                        var snddata = soundboardSounds[data.soundIndex].data;
                       }
-                      soundboardSoundsPlaying = newSBAUDIO;
-                    };
-                  } catch (e) {
-                    dialog.alert(e);
-                  }
-                })();
-                return;
+                      var audio = new window.AudioApiReplacement(snddata);
+                      var sbaudio = {
+                        id: _sbid,
+                        audio: audio,
+                        username: data.username,
+                        index: data.soundIndex,
+                        url: data.soundURL
+                      };
+                      soundboardSoundsPlaying.push(sbaudio);
+                      var buttonElement = document.getElementById("sbButtonUsernames-"+data.soundIndex);
+                      audio.play();
+                      audio.setVolume(soundboardSoundVolume);
+                      audio.onended = function () {
+                        var newSBAUDIO = [];
+                        for (var sba of soundboardSoundsPlaying) {
+                          if (sba.id !== sbaudio.id) {
+                            newSBAUDIO.push(sba);
+                          }
+                        }
+                        soundboardSoundsPlaying = newSBAUDIO;
+                      };
+                    } catch (e) {
+                      dialog.alert(e);
+                    }
+                  })();
+                  return;
 
-                return;
-              }
-              if (data.type == "stopSoundboard") {
-                for (var sbaudio of soundboardSoundsPlaying) {
-                  sbaudio.audio.pause();
-                }
-                soundboardSoundsPlaying = [];
-                return;
-              }
-              if (data.type == "ssEnd") {
-                if (preloader.groupSettings["disableWebrtc"] == "on") {
                   return;
                 }
-                //ssEnd stands for screen share end
-                var vid = document.getElementById("ssVideo");
-                var infoss = document.getElementById("ssInfoSpan");
-                screenShareNewDiv.hidden = true;
-                if (ssCurrentScreenShare) {
-                  ssCurrentScreenShare.closeConnection();
+                if (data.type == "stopSoundboard") {
+                  for (var sbaudio of soundboardSoundsPlaying) {
+                    sbaudio.audio.pause();
+                  }
+                  soundboardSoundsPlaying = [];
+                  return;
                 }
-                ssCurrentScreenShare = null;
-                window.ableToScreenShare = true;
-                infoss.textContent = "";
-                vid.pause();
-                clearTimeout(ssTimeoutStuff);
-                vid.srcObject = null;
-                vid.src = "";
-                return;
+                if (data.type == "ssEnd") {
+                  if (preloader.groupSettings["disableWebrtc"] == "on") {
+                    return;
+                  }
+                  //ssEnd stands for screen share end
+                  var vid = document.getElementById("ssVideo");
+                  var infoss = document.getElementById("ssInfoSpan");
+                  screenShareNewDiv.hidden = true;
+                  if (ssCurrentScreenShare) {
+                    ssCurrentScreenShare.closeConnection();
+                  }
+                  ssCurrentScreenShare = null;
+                  window.ableToScreenShare = true;
+                  infoss.textContent = "";
+                  vid.pause();
+                  clearTimeout(ssTimeoutStuff);
+                  vid.srcObject = null;
+                  vid.src = "";
+                  return;
+                }
               }
               if (data.type == "ssTick") {
                 if (preloader.groupSettings["disableWebrtc"] == "on") {
@@ -5058,50 +5122,51 @@ var stunServerList = [
             "sounds"
           )
         );
-
-        var soundboardElement = document.getElementById("soundboardElement");
         var showSoundboardButton = document.getElementById(
           "showSoundboardButton"
         );
-        var soundboardButtons = document.getElementById("soundboardButtons");
-        var soundboardUploadButton = document.getElementById(
-          "soundboardUploadButton"
-        );
+        if (soundboardEnabled) {
+          var soundboardElement = document.getElementById("soundboardElement");
 
-        var soundboardAddSoundDialog = document.getElementById(
-          "soundboardAddSoundDialog"
-        );
-        var customSoundName = document.getElementById("customSoundName");
-        var customSoundSelect = document.getElementById("customSoundSelect");
-        var customSoundClose = document.getElementById("customSoundClose");
-        var customSoundAdd = document.getElementById("customSoundAdd");
+          var soundboardButtons = document.getElementById("soundboardButtons");
+          var soundboardUploadButton = document.getElementById(
+            "soundboardUploadButton"
+          );
 
-        function saveCustomSoundboardSounds() {
-          var customOnly = [];
-          for (var sound of soundboardSounds) {
-            if (sound.isCustom) {
-              customOnly.push(sound);
+          var soundboardAddSoundDialog = document.getElementById(
+            "soundboardAddSoundDialog"
+          );
+          var customSoundName = document.getElementById("customSoundName");
+          var customSoundSelect = document.getElementById("customSoundSelect");
+          var customSoundClose = document.getElementById("customSoundClose");
+          var customSoundAdd = document.getElementById("customSoundAdd");
+
+          function saveCustomSoundboardSounds() {
+            var customOnly = [];
+            for (var sound of soundboardSounds) {
+              if (sound.isCustom) {
+                customOnly.push(sound);
+              }
+            }
+            localStorage.setItem("customSBSounds", JSON.stringify(customOnly));
+          }
+          function loadSoundboardButtons() {
+            var i = 0;
+            soundboardButtons.innerHTML = "";
+            var button = createSoundboardStopButton(sound, i);
+            soundboardButtons.append(button);
+            for (var sound of soundboardSounds) {
+              if (sound) {
+                var button = createSoundboardButton(sound, i);
+                soundboardButtons.append(button);
+              }
+              i += 1;
             }
           }
-          localStorage.setItem("customSBSounds", JSON.stringify(customOnly));
-        }
-        function loadSoundboardButtons() {
-          var i = 0;
-          soundboardButtons.innerHTML = "";
-          var button = createSoundboardStopButton(sound, i);
-          soundboardButtons.append(button);
-          for (var sound of soundboardSounds) {
-            if (sound) {
-              var button = createSoundboardButton(sound, i);
-              soundboardButtons.append(button);
-            }
-            i += 1;
-          }
-        }
-        function createSoundboardButton(sound, index) {
-          var button = document.createElement("div");
-          button.addEventListener("contextmenu", function (e) {
-            /*if (sound.isCustom) {
+          function createSoundboardButton(sound, index) {
+            var button = document.createElement("div");
+            button.addEventListener("contextmenu", function (e) {
+              /*if (sound.isCustom) {
               e.preventDefault();
               var newsounds = [];
               for (var sound of soundboardSounds) {
@@ -5114,175 +5179,192 @@ var stunServerList = [
               saveCustomSoundboardSounds();
               loadSoundboardButtons();
             }*/
-          });
-          button.addEventListener("click", function (e) {
-            e.preventDefault();
-            try {
-              if (e.shiftKey) {
-                if (sound.isCustom) {
-                  e.preventDefault();
-                  var newsounds = [];
-                  for (var snd of soundboardSounds) {
-                    if (snd.name !== customSoundName.value) {
-                      newsounds.push(snd);
+            });
+            button.addEventListener("click", function (e) {
+              e.preventDefault();
+              try {
+                if (e.shiftKey) {
+                  if (sound.isCustom) {
+                    e.preventDefault();
+                    var newsounds = [];
+                    for (var snd of soundboardSounds) {
+                      if (snd.name !== customSoundName.value) {
+                        newsounds.push(snd);
+                      }
                     }
-                  }
 
-                  soundboardSounds = newsounds;
-                  saveCustomSoundboardSounds();
-                  loadSoundboardButtons();
-                }
-                return;
-              }
-              if (sound.isCustom) {
-                window.websocket.send(
-                  JSON.stringify({
-                    room: window.server,
-                    type: "playSoundboard",
-                    username: username.value,
-                    soundURL: sound.url,
-                  })
-                );
-              } else {
-                window.websocket.send(
-                  JSON.stringify({
-                    room: window.server,
-                    type: "playSoundboard",
-                    username: username.value,
-                    soundIndex: index,
-                  })
-                );
-              }
-            } catch (e) {
-              dialog.alert(e);
-            }
-          });
-          button.textContent = sound.name;
-          button.className = "soundboardButton";
-          return button;
-        }
-
-        function createSoundboardStopButton() {
-          var button = document.createElement("div");
-          button.addEventListener("click", function (e) {
-            e.preventDefault();
-            window.websocket.send(
-              JSON.stringify({
-                room: window.server,
-                type: "stopSoundboard",
-                username: username.value,
-              })
-            );
-          });
-          button.textContent = "STOP";
-          button.className = "soundboardButtonStop";
-          return button;
-        }
-
-        var i = 0;
-        var sbZips = [];
-        rrLoadingStatus.textContent = "Loading shared soundboard sounds...";
-        for (var sbzipurl of soundboardSoundZips) {
-          var sbRequest = await fetch(sbzipurl); //New soundboard is stored in zip to save server requests.
-          var sbArrayBuffer = await sbRequest.arrayBuffer();
-          var sbZip = await window.JSZip.loadAsync(sbArrayBuffer);
-          sbZips.push(sbZip);
-        }
-        var loaded = 0;
-        var neededToLoad = soundboardSounds.length;
-        for (var sound of soundboardSounds) {
-          (async function () {
-            if (!sound.isCustom) {
-              if (typeof sound.zipfile == "string") {
-                try {
-                  var file = null;
-                  for (var sbZip of sbZips) {
-                    if (sbZip.files[sound.zipfile]) {
-                      file = sbZip.files[sound.zipfile];
-                    }
+                    soundboardSounds = newsounds;
+                    saveCustomSoundboardSounds();
+                    loadSoundboardButtons();
                   }
-                  if (!file) {
-                    dialog.alert(
-                      `${sound.zipfile} does not exist in a soundboard zip file`
-                    );
-                    return;
-                  }
-                  var arrayBuffer = await file.async("arrayBuffer");
-                  sound.data = await window.decodeAsync(arrayBuffer);
-                  //window.alert(sound.data);
-                } catch (e) {
-                  dialog.alert(e);
-                }
-              } else {
-                sound.data = await window.loadSoundURL(sound.url);
-              }
-            }
-            i += 1;
-            loaded += 1;
-            var percent = Math.round((loaded / neededToLoad) * 100);
-            rrLoadingStatus.textContent =
-              "Loading shared soundboard sounds... (" + percent + "%)";
-          })();
-        }
-        await (function () {
-          return new Promise((accept, reject) => {
-            var sbinterval = setInterval(() => {
-              if (loaded == neededToLoad) {
-                clearInterval(sbinterval);
-                accept();
-              }
-            }, 1000 / 60);
-          });
-        })();
-        loadSoundboardButtons();
-        var selectedCustomSoundURL = "";
-        soundboardUploadButton.onclick = function () {
-          selectedCustomSoundURL = "";
-          soundboardAddSoundDialog.hidden = false;
-          soundboardElement.hidden = true;
-        };
-        customSoundClose.onclick = function () {
-          selectedCustomSoundURL = "";
-          soundboardAddSoundDialog.hidden = true;
-          soundboardElement.hidden = false;
-        };
-        customSoundSelect.onclick = async function () {
-          var input = document.createElement("input");
-          input.type = "file";
-          input.onchange = async function () {
-            if (input.files[0]) {
-              var file = input.files[0];
-              var url = await createMarcesChatAPIFileUrl(file, file.type);
-              selectedCustomSoundURL = url;
-            }
-          };
-          input.accept = "audio/*";
-          input.click();
-        };
-        customSoundAdd.onclick = function () {
-          if (selectedCustomSoundURL.length > 0) {
-            if (customSoundName.value.length > 0) {
-              for (var sound of soundboardSounds) {
-                if (sound.name == customSoundName.value) {
                   return;
                 }
+                if (sound.isCustom) {
+                  window.websocket.send(
+                    JSON.stringify({
+                      room: window.server,
+                      type: "playSoundboard",
+                      username: username.value,
+                      soundURL: sound.url,
+                    })
+                  );
+                } else {
+                  window.websocket.send(
+                    JSON.stringify({
+                      room: window.server,
+                      type: "playSoundboard",
+                      username: username.value,
+                      soundIndex: index,
+                    })
+                  );
+                }
+              } catch (e) {
+                dialog.alert(e);
               }
-              soundboardSounds.push({
-                isCustom: true,
-                name: customSoundName.value,
-                url: selectedCustomSoundURL,
-              });
-              saveCustomSoundboardSounds();
-              loadSoundboardButtons();
-              soundboardAddSoundDialog.hidden = true;
-              soundboardElement.hidden = false;
+            });
+            var buttonNameSpan = document.createElement("span");
+            buttonNameSpan.textContent = sound.name;
+            button.append(buttonNameSpan);
+            var buttonUsernameSpan = document.createElement("span");
+            buttonUsernameSpan.className = "soundboardButtonUsernames";
+            buttonUsernameSpan.id = "sbButtonUsernames-"+index;
+            if (!sound.isCustom) {
+              soundboardButtonIds[index] = buttonUsernameSpan;
+              button.append(buttonUsernameSpan);
             }
+            
+            button.className = "soundboardButton";
+            return button;
           }
-        };
 
-        showSoundboardButton.onclick = function () {
-          soundboardElement.hidden = false;
-        };
+          function createSoundboardStopButton() {
+            var button = document.createElement("div");
+            button.addEventListener("click", function (e) {
+              e.preventDefault();
+              window.websocket.send(
+                JSON.stringify({
+                  room: window.server,
+                  type: "stopSoundboard",
+                  username: username.value,
+                })
+              );
+            });
+            button.textContent = "STOP";
+            button.className = "soundboardButtonStop";
+            return button;
+          }
+
+          var i = 0;
+          var sbZips = [];
+          rrLoadingStatus.textContent = "Loading shared soundboard sounds...";
+          for (var sbzipurl of soundboardSoundZips) {
+            var sbRequest = await fetch(sbzipurl); //New soundboard is stored in zip to save server requests.
+            var sbArrayBuffer = await sbRequest.arrayBuffer();
+            var sbZip = await window.JSZip.loadAsync(sbArrayBuffer);
+            sbZips.push(sbZip);
+          }
+          var loaded = 0;
+          var neededToLoad = soundboardSounds.length;
+          for (var sound of soundboardSounds) {
+            (async function () {
+              if (!sound.isCustom) {
+                if (typeof sound.zipfile == "string") {
+                  try {
+                    var file = null;
+                    for (var sbZip of sbZips) {
+                      if (sbZip.files[sound.zipfile]) {
+                        file = sbZip.files[sound.zipfile];
+                      }
+                    }
+                    if (!file) {
+                      dialog.alert(
+                        `${sound.zipfile} does not exist in a soundboard zip file`
+                      );
+                      return;
+                    }
+                    var arrayBuffer = await file.async("arrayBuffer");
+                    sound.data = await window.decodeAsync(arrayBuffer);
+                    //window.alert(sound.data);
+                  } catch (e) {
+                    dialog.alert(e);
+                  }
+                } else {
+                  sound.data = await window.loadSoundURL(sound.url);
+                }
+              }
+              i += 1;
+              loaded += 1;
+              var percent = Math.round((loaded / neededToLoad) * 100);
+              rrLoadingStatus.textContent =
+                "Loading shared soundboard sounds... (" + percent + "%)";
+            })();
+          }
+          await (function () {
+            return new Promise((accept, reject) => {
+              var sbinterval = setInterval(() => {
+                if (loaded == neededToLoad) {
+                  clearInterval(sbinterval);
+                  accept();
+                }
+              }, 1000 / 60);
+            });
+          })();
+          loadSoundboardButtons();
+
+          var selectedCustomSoundURL = "";
+          soundboardUploadButton.onclick = function () {
+            selectedCustomSoundURL = "";
+            soundboardAddSoundDialog.hidden = false;
+            soundboardElement.hidden = true;
+          };
+          customSoundClose.onclick = function () {
+            selectedCustomSoundURL = "";
+            soundboardAddSoundDialog.hidden = true;
+            soundboardElement.hidden = false;
+          };
+          customSoundSelect.onclick = async function () {
+            var input = document.createElement("input");
+            input.type = "file";
+            input.onchange = async function () {
+              if (input.files[0]) {
+                var file = input.files[0];
+                var url = await createMarcesChatAPIFileUrl(file, file.type);
+                selectedCustomSoundURL = url;
+              }
+            };
+            input.accept = "audio/*";
+            input.click();
+          };
+          customSoundAdd.onclick = function () {
+            if (selectedCustomSoundURL.length > 0) {
+              if (customSoundName.value.length > 0) {
+                for (var sound of soundboardSounds) {
+                  if (sound.name == customSoundName.value) {
+                    return;
+                  }
+                }
+                soundboardSounds.push({
+                  isCustom: true,
+                  name: customSoundName.value,
+                  url: selectedCustomSoundURL,
+                });
+                saveCustomSoundboardSounds();
+                loadSoundboardButtons();
+                soundboardAddSoundDialog.hidden = true;
+                soundboardElement.hidden = false;
+              }
+            }
+          };
+
+          showSoundboardButton.onclick = function () {
+            soundboardElement.hidden = false;
+          };
+        }
+
+        showSoundboardButton.hidden = true;
+        if (soundboardEnabled) {
+          showSoundboardButton.hidden = false;
+        }
 
         function dragElement(elmnt) {
           var pos1 = 0,
@@ -5372,14 +5454,13 @@ var stunServerList = [
             rrWelcomeScreen.hidden = true;
           };
         }
-        
-        
-        function addScriptSRC (src) {
+
+        function addScriptSRC(src) {
           var script = document.createElement("script");
           script.src = src;
           document.body.append(script);
         }
-        
+
         addScriptSRC("adminchat.js");
       })();
     } catch (e) {
