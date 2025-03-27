@@ -66,7 +66,7 @@
         if (!this.source) {
           const source = audioCTX.createBufferSource();
           this.gainNode = audioCTX.createGain();
-          source.buffer = cloneAudioBuffer(this.data); //Allow to replay buffer by cloning it.
+          source.buffer = this.data;
           source.playbackRate.value = this.playbackRate;
           source.loop = this.looped;
 
