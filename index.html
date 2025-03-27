@@ -101,9 +101,11 @@
         --storage-group-text-color: #4a4a4a;
 
         --soundboard-button-bgcolor: #a1a1a1;
+        --soundboard-button-border-color: #545454;
         --soundboard-button-hover-bgcolor: #bfbfbf;
         
         --soundboard-stop-button-bgcolor: #d90000;
+        --soundboard-stop-border-color: #750000;
         --soundboard-stop-button-hover-bgcolor: #ff0000;
 
         --usercolors-1: #ff0000;
@@ -549,13 +551,16 @@
           Home
         </button>
         <b id="usersTyping" style="position: fixed; bottom: 40px; left: 0"></b>
-        <div
+        <div style="display:flex;height: calc(100vh - 220px);">
+          <div id="cameraVideos">
+          </div>
+          <div
           id="messages"
           class="roundborder"
           style="
             resize: none;
             font-size: 20px;
-            width: 100%;
+            flex-grow: 1;
             height: calc(100vh - 220px);
             border: none;
             background-color: var(--messages-bg-color);
@@ -563,14 +568,16 @@
             overflow: auto;
             min-height: 150px;
             min-width: 200px;
+            display: flex;
           "
-          disabled
         >
           <span
             id="messagesP"
             style="float: left; text-align: left; width: 100%; height: 100%"
           ></span>
         </div>
+        </div>
+        
         <input
           type="text"
           placeholder="Type your message here..."
@@ -832,14 +839,14 @@
       <style>
         /* Styling for individual video elements */
         .cameraVideo {
-          width: 100px;
-          height: 100px; /* Matches container height */
+          width: 150px;
+          height: 150px;
+          min-width: 150px;
+          min-height: 150px;
           background: black;
           border: 2px solid #333; /* Subtle border for separation */
           border-radius: 8px; /* Rounded corners for better aesthetics */
           margin: 0 4px; /* Adds spacing between video elements */
-          overflow: hidden; /* Ensures video content stays inside rounded corners */
-          transition: transform 0.2s, box-shadow 0.2s; /* Smooth interaction effects */
           position: relative;
           top: 0;
           left: 0;
@@ -850,35 +857,12 @@
           height: 100%;
         }
 
-        /* Styling for the container */
         #cameraVideos {
-          position: fixed;
-          top: 10px;
-          right: 100px;
-          width: 200px;
-          height: calc(100vh - 10px);
-          overflow-x: auto;
-          overflow-y: auto;
-          pointer-events: none;
+          overflow: auto;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
         }
-        #cameraVideos:hover {
-          opacity: 0.5;
-        }
-
-        /* Custom scrollbar for WebKit browsers */
-        #cameraVideos::-webkit-scrollbar {
-          height: 6px; /* Adjust scrollbar thickness */
-        }
-
-        #cameraVideos::-webkit-scrollbar-thumb {
-          background: #666; /* Scrollbar color */
-          border-radius: 3px; /* Rounded scrollbar */
-        }
-
-        #cameraVideos::-webkit-scrollbar-track {
-          background: transparent; /* Transparent track */
-        }
-        
         .cameraVideoUsername {
           position:absolute;
           bottom: 0;
@@ -892,8 +876,6 @@
           line-warp: balance;
         }
       </style>
-
-      <div id="cameraVideos"></div>
 
       <div
         id="screenShareNewDiv"
@@ -1231,9 +1213,7 @@
         <style>
           .soundboardButton {
             min-width: 100px;
-            min-height: 100px;
             width: fit-content;
-            height: fit-content;
             font-size: 20px;
             background: var(--soundboard-button-bgcolor);
             display: flex;
@@ -1242,17 +1222,32 @@
             margin-right: 5px;
             margin-bottom: 5px;
             flex-wrap: wrap;
+            flex-direction: column;
+            border-bottom-style: solid;
+            border-bottom-width: 10px;
+            border-bottom-color: var(--soundboard-button-border-color);
+            height: 90px;
+            border-radius: 2px;
+            overflow: hidden;
           }
           .soundboardButton:hover {
             background: var(--soundboard-button-hover-bgcolor);
             cursor: pointer;
+            border-bottom-width: 5px;
+            height: 95px;
           }
+          
+          .soundboardButton:active {
+            background: var(--soundboard-button-hover-bgcolor);
+            cursor: pointer;
+            border-bottom-width: 0px;
+            height: 100px;
+          }
+          
           
           .soundboardButtonStop {
             min-width: 100px;
-            min-height: 100px;
             width: fit-content;
-            height: fit-content;
             font-size: 20px;
             background: var(--soundboard-stop-button-bgcolor);
             display: flex;
@@ -1261,10 +1256,31 @@
             margin-right: 5px;
             margin-bottom: 5px;
             flex-wrap: wrap;
+            flex-direction: column;
+            border-bottom-style: solid;
+            border-bottom-width: 10px;
+            border-bottom-color: var(--soundboard-stop-button-border-color);
+            height: 90px;
+            border-radius: 2px;
+            overflow: hidden;
           }
           .soundboardButtonStop:hover {
             background: var(--soundboard-stop-button-hover-bgcolor);
             cursor: pointer;
+            border-bottom-width: 5px;
+            height: 95px;
+          }
+          
+          .soundboardButtonStop:active {
+            background: var(--soundboard-stop-button-hover-bgcolor);
+            cursor: pointer;
+            border-bottom-width: 0px;
+            height: 100px;
+          }
+          
+          .soundboardButtonUsernames {
+            font-weight:bold;
+            font-size: 15px;
           }
 
           #soundboardButtons {
