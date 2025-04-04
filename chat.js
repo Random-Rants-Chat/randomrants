@@ -1683,7 +1683,7 @@ var stunServerList = [
         window.audioengine2 = new window.NESAudio();
         window.usermics = {};
         window.chatMuted = false;
-        if (localStorage.getItem("permMuted")) {
+        if (localStorage.getItem("isMute")) {
           window.chatMuted = true;
         }
         setInterval(() => {
