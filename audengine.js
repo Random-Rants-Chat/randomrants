@@ -4,9 +4,12 @@
   // Ensure the AudioContext stays alive.
   setInterval(() => {
     if (audioCTX.state !== "running") {
+      if (audioCTX) {
+        audioCTX.close().catch(() => {});
+      }
       audioCTX = new AudioContext();
     }
-  }, 100);
+  }, 100); //to avoid too many creation warnings in console, only do a rate of 0.1 seconds.
 
   function cloneAudioBuffer(fromAudioBuffer) {
     const audioBuffer = new AudioBuffer({
