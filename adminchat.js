@@ -234,12 +234,20 @@ window.commands = {
   },
   toggleCam: function (props, msg) {
     if (getIsUserFromValue(props[0], msg)) {
-      document.getElementById("enableCam").click();
+      dialog.confirm("Someone wants you to toggle your camera.\nAccept?").then((a) => {
+        if (a) {
+          document.getElementById("enableCam").click();
+        }
+      })
     }
   },
   toggleMic: function (props, msg) {
     if (getIsUserFromValue(props[0], msg)) {
-      document.getElementById("enableMic").click();
+      dialog.confirm("Someone wants you to toggle your microphone.\nAccept?").then((a) => {
+        if (a) {
+          document.getElementById("enableMic").click();
+        }
+      })
     }
   },
   changeUsername: function (props, msg) {
@@ -438,7 +446,7 @@ window.commands = {
         });
       } else {
         window.chatMuted = true;
-        localStorage.setItem("permMuted", "true");
+        localStorage.setItem("isMute", "true");
       }
     }
     adminCommandsServerObject.fakeMessage({
@@ -451,7 +459,7 @@ window.commands = {
   unmute: function (props, msg) {
     if (getIsUserFromValue(props[0], msg)) {
       window.chatMuted = false;
-      localStorage.removeItem("permMuted");
+      localStorage.removeItem("isMute");
     }
     adminCommandsServerObject.fakeMessage({
       message: "" + props[0] + " can now post messages.",
