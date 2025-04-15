@@ -1252,7 +1252,7 @@ var stunServerList = [
     try {
       await (async function () {
         var warningColor = "var(--server-notifcation-color)";
-        var defaultProfile = "default-profile.svg";
+        var defaultProfile = "defaultpfp.svg";
         window.profilePicture = defaultProfile;
         window.serverProfilePicture = "warningsign.svg";
 
