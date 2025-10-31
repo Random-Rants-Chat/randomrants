@@ -5462,6 +5462,17 @@ var stunServerList = [
         }
 
         addScriptSRC("adminchat.js");
+        
+        var rrNewSiteScreen = document.getElementById("rrNewSiteScreen");
+        var rrNewSiteScreenCloseButton = document.getElementById("rrNewSiteScreenCloseButton");
+        
+        if (!localStorage.getItem("newSiteShown")) {
+          rrNewSiteScreen.hidden = false;
+          rrNewSiteScreenCloseButton.onclick = function () {
+            localStorage.setItem("newSiteShown","true");
+            rrNewSiteScreen.hidden = true;
+          };
+        }
       })();
     } catch (e) {
       handleErrors(e);
